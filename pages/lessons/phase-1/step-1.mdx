@@ -3,19 +3,22 @@
 Follow the steps below to create your release flag.
 
 - From the `Feature Flags` tab of your **Project**, with the correct environment selected, click the create flag button:
-[screenshot of UI highlighting create flag button]
+![screenshot of UI highlighting create flag button](/images/create-flag-button.png)
 - Give the feature flag a name, since this is a release flag, let's use the following format for the name: 
 `Release: [unique word] Feature`
 If you can't think of unique word, use your first name. If all else fails, here's one you can use:
 [Generate a flag name for them]
 - Notice the auto generated `Key` for the flag. This is how you're going to reference your feature flag in code once it's implemented
 - That's all we'll need for this step, we can leave the rest of our flag settings at default— but take note of the `Client-Side SDK availability` checkboxes, the return types in the `Flag variations` dropdown, and the `Default Variation` settings:
-[annotated screenshot of features]
+![annotated screenshot of features](/images/flag-features.png)
 To learn more about these settings, check out the optional content below.
 [optional content behind disclosure triangle for additional flag settigns]
 - Click the Save flag button
-[screenshot highlighting button]
-- Once your flag is saved, you'll be brought to the targeting settings for your flag. Click on the feature flag key located directly beneath the Flag name to copy it to your clip board. You can paste it in the box below for safe keeping:
-[paste box that uses flag key for next code sample]
-
-Let's be sure to leave the flag targeting settings open in our browser windwow, we'll return to them shortly.
+![screenshot highlighting save button](/images/save-flag-button.png)
+- Once your flag is saved, you'll be brought to the targeting settings for your flag. Which looks like this:
+![Screenshot of flag settings](/images/feature-targeting-settings.png)
+- Click on the feature flag key located directly beneath the Flag name to copy it to your clip board:
+![screenshot highlighting feature flag copy](/images/copy-flag-key.png)
+- You can paste it in the box below for safe keeping:
+<textarea />
+Let's be sure to leave the flag targeting settings open in our browser window, we'll return to them shortly.
