@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { getUrlFromLocalStorage, setUrlInLocalStorage } from '../lib/urlHelpers';
 
+// Need to import custom styles because we can't reconfigure the Tailwind installation in the theme
+// to add the @tailwind/forms plugin
+import styles from './css/APIServerInput.module.css';
+
 // Include this component to make the backend address configurable
 //
 // Example:
@@ -30,13 +34,15 @@ export default function APIServerInput() {
   }
 
   return (
-      <form onSubmit={handleSubmit} className="w-full">
+      <form onSubmit={handleSubmit} className={`w-full ${styles.form}`}>
         <fieldset disabled={!editing} className="block w-full">
-          <label className="block text-sm font-medium text-gray-700">
-          Server URL:
-            <input type="text" className="block w-full rounded-md border-1 border-gray-500 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value={url} onChange={handleInputChange}></input>
-          </label>
-          <button className="bg-blue-200 px-6 py-2">Set</button>
+          <div className="flex">
+            <label className="w-full mr-8 text-sm font-medium text-gray-700">
+            Server URL:
+              <input type="text" className={`w-full rounded-md border-1 line border-gray-500 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${styles.input}`} value={url} onChange={handleInputChange}></input>
+            </label>
+            <button className={styles.button}>Set</button>
+          </div>
         </fieldset>
         {!editing && <button onClick={() => setEditing(true)}>Edit</button>}
       </form>
