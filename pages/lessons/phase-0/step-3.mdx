@@ -1,0 +1,17 @@
+# Step 3: Initialize the LaunchDarkly Client
+
+Finally, we'll initialize the **LaunchDarkly Client** by passing it our `SDK_KEY` variable on line 18 of `module01/index.js`
+
+[screenshot or formatted code sample of line 18]
+
+Assuming we did everything correctly, the LaunchDarkly Client will initialize as soon as we save this file— all of your Project's **Feature Flags** and the rules associated with your **Environment** will be fetched and cached locally to your application.
+
+To learn more about the architecture we use to deliver and evaluate your feature flags, check out the optional content below.
+
+[optional content behind disclosure triangle with streaming/caching architecture]
+
+If you haven't already, go ahead and pass the `SDK_KEY` variable to the `ld.init` function on line 18 of `module01/index.js`. Here's what it should look like:
+
+[screenshot/formatted sample of correct code]
+
+We're almost ready, but before we save our progress, let's add a console log to our terminal output to ensure the **LaunchDarkly Client** is defined properly, since we'll need it for the next phases.

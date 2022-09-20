@@ -1,0 +1,17 @@
+# Phase 1: Seperate Deploy from Release
+
+Fantastic, we've got our **LaunchDarkly Client** defined! Now, the fun can begin.
+
+While implementation was (hopefully) straightforward, don't be deceived! The speed, resiliency, and simplicity of our system unlocks a variety of powerful capabilities for your team.
+
+The first of these capabilities we've decided to focus on is **Seperating Deploy from Release**.
+
+In this exercise, we'll implement a feature flag and mitigate the risk around releasing new code in the wild.
+
+## Exercise: Release Flagging
+
+One of the primary benefits of using LaunchDarkly is that it enables **Feature Management** at runtime, which sets it apart from other risk mitigation practices in development that tend to happen at build time or as part of deployment.
+
+The speed, efficiency, and reliability of LaunchDarkly makes it possible to quickly roll back changes in Production environments— without having to roll back an entire deployment. So your team can focus on the problem code, rather than firefighting.
+
+To demonstrate how this is possible, we'll first need to create a feature flag in our **Project**.

@@ -1,0 +1,6 @@
+{
+    "phase-0" : "Phase 0: Implement the LaunchDarkly Client",
+    "phase-1" : "Phase 1: Seperate Deploy from Release",
+    "phase-2" : "Phase 2: Targeting Rollouts",
+    "phase-3" : "Phase 3: Test in Production"
+}

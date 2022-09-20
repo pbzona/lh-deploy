@@ -1,0 +1,40 @@
+# Step 2: Add Your SDK Key
+
+Our LaunchDarkly Client will need to know which feature flags to cache, and the **Targeting Rules** associated with them, before we can start diving into examples— so we'll need to wire our app up to our **Environment**. You can find additional explanation about LaunchDarkly **Environments** and **Projects** in the optional content below.
+
+[Content behind disclosure triangle that explains environments]
+
+Let's find the SDK key for our LaunchDarkly **Environment** now. If you wanted to see the SDK Keys for each **Environment** within the **Projects** you have access to, you can do that from your **[Account Settings](https://app.launchdarkly.com/settings/projects)**— but, instead of looking for our key there let's use a handy shortcut.
+
+First, make sure you're in the correct project/environment
+
+[screenshot of UI with project and environment highlighted and annotated]
+
+If not, switch to the correct project
+
+[animated screencap of selecting a project and environment]
+
+Next, we'll use the **Global Search** keyboard shorcut: 
+
+command + k (mac)
+ctrl + k (pc)
+
+You'll see the following pop up in your LaunchDarkly Project:
+
+[screenshot of global search box]
+
+You may already see the option to `Copy SDK key for the current environment`. If not, you should only need to type the word `copy`, click the correct option, and select `Server-side key`.
+
+[animated screencap of copying Server-side SDK key]
+
+This copies the SDK key for our environment. Go ahead and paste it below for safekeeping:
+
+[box for SDK key that stores it in local storage then uses it to populate code sample]
+
+Now, let's store it inside of the `SDK_KEY` variable we've predefined on line 15 of `module01/index.js`.
+
+[screenshot or formatted code sample of line 15]
+
+Once again, make sure you use quotation marks! Line 15 should look like this:
+
+[screenshot or formatted code sample of correct line]

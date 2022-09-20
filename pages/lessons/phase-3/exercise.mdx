@@ -1,0 +1,91 @@
+# Exercise: Testing in Production
+
+At a minimum, LaunchDarkly gives us a new worst-case-scenario for a deploy failure: a killswitch. With LaunchDarkly in our Production environment, any feature behind a flag can simply be disabled. In this reality, what's the purpose of a QA environment at all. We don't need to maintain infrastructure purely to mimic the conditions of production, simply so we can troubleshoot an issue without impacting real traffic.
+
+In this exercise, we'll run through a common real-life scenario and demonstrate how LaunchDarkly makes it easier to recover from an incident by reducing the number of variables that need to be accounted for in troubleshooting.
+
+Say it's a typical Tuesday in the office. You're running through your normal duties, taking issues out of the queue and tackling them one by one, when all of a sudden you get pinged on an urgent issue escalated by the support team:
+
+[screenshot of fake dramatic error ticket]
+
+Oh no! The feature we've been working on is broken in production, and the tickets are piling up in technical support. First thing, let's turn the flag off so we can give the support team a break.
+
+[animation toggling flag off]
+
+Great, now let's regroup. First, we look up the details about one of the users who reported an issue in the users tab, and it looks like this:
+
+[screenshot of fake user with android device and 2.0 version attribute]
+
+Yup, that's the group of users wanted to release this feature to— and it worked when we tested in our development environment— so what could the issue be? Let's reproduce this ourselves to see if we can figure out what the problem is. We're going to turn the feature back on, but only for us, so first let's ensure that nobody is receiving the feature in production by adjusting our targeting rules:
+
+[animation changing the variation to false for the flag targeting rules]
+
+Don't forget to turn the flag back on before saving
+
+[animation turning the flag on and clicking save]
+
+Ok, our flag is on but it's currently returning `false` for all rulesets. We grab an Android test device and login with our production credentials:
+
+[mobile device silhouette with smiley face]
+
+Everything is looking good. You check the app version and it's `2.0`, so this device should be able to recreate the issue. To do this, we're going to use the **Individual User Targeting** feature. Before we can use that, let's define our production user on line[x] in `module04/index.js`:
+
+[evaluation context code sample without email address and name field filled out]
+
+Go ahead and add fill out the `firstName` and `email` attributes with your own info:
+
+[completed code sample]
+
+If your code looks similar to the above code, go ahead and save the file.
+
+Alright, now that we know our production credentials, let's add ourselves to the `true` variation group in the **Individual Targeting** section of the flag targeting panel, then save the change.
+
+[animation of adding user, clicking save]
+
+Now let's check our app to see if we're receiving the issue:
+
+[mobile silhoutte with flame]
+
+Yup, there it is. Interesting. Let's have a look at the code to see what the difference is in production. You can find the feature code on line[x] of `module04/index.js`:
+
+[code sample]
+
+Interesting, nothing seems to stand out in the feature code— but what's this?
+
+[code sample]
+
+Before the feature can run at all, it looks like we're doing a dependency check.
+
+[code sample]
+
+Let's have a look at the `module04/dependencies.js` file.
+
+[code sample]
+
+Interesting, `critical-dependency` in production is at version `0.4`— that satisfies the dependency check for this feature, but is it the same version we used when we developed this feature? Let's refer back to `module02/dependencies.js` to see what the version is there:
+
+[code sample]
+
+A HA! It's a different dependency version, `0.6`, just as we suspected! We do a quick codescan, and the only feature using this dependency is ours (nice how everything works out perfectly in a made up scenario, huh?). Let's go ahead and update the dependency now in `module04/dependencies.js`, like so:
+
+[code sample]
+
+If the dependencies file matches the above sample, go ahead and save it.
+
+Great! Now that we've updated the dependency, let's check to see if the feature is working for us!
+
+[mobile silhouette with thumbs up]
+
+Looking great. Okay, last thing. Let's remove ourselves from the test group and turn the feature back on for Android users on app version 2.0:
+
+[animation of removing individual target, flipping targeting rule back to true]
+
+Don't forget to save!
+
+[animation of clicking teh save button]
+
+Great, now let's double check that the app is still working:
+
+[mobile silhouette with thumbs up again, confetti in the backlground]
+
+It's fixed! Amazing. And we were able to do all that purely by comparing a dev file to production and updating a fixing a dependency mismatch. Can you imagine how needing to recreate the issue in a QA environment would have been an extra, unneccessary step in this scenario?

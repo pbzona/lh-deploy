@@ -1,0 +1,71 @@
+# Step 2: Add feature flag to code
+
+For this and the following steps, we'll be making changes to `module02/index.js`. Click the button below to open the correct file:
+
+[still not sure if this is possible, but button to open file]
+
+For the sake of this example, let's imagine that saving the code in our editor is all we need to deploy our code to Production. You and I both know that isn't the case, but functionality we gain once we start feature flagging in our app is identical to what you'll see once we get our feature flag added.
+
+On line [x] of `module02/index.js` you'll see a call to the `ldclient.variation()` method.
+
+[code sample]
+
+This is the method we use to evaluate our feature flag. The method takes three parameters:
+
+1. The feature flag key
+2. The flag **evaluation context** (covered in more detail later)
+3. The **fallback value** (the value that gets returned in the event of failure)
+
+For more information on **fallback values** check out the optional content below
+
+[optional content disclosure box]
+
+For the sake of this example, we've taken care of teh **evaluation context** and **fallback parameter*** values for you— all you need to do is add your feature flag key. The correct code should look like this:
+
+[code sample that uses dynamic flag key]
+
+If your code matches, go ahead and save your file. We'll show you what your flag evaluates to once you do:
+
+[dynamic element that prints Feature Flag key and value in eye catching way]
+
+[text conditional based on feature flag being added] Great work! Now that our flag is implemented, let's go ahead and turn it on. 
+
+To do that, we'll head back to the targeting settings for our flag, toggle the Targeting switch to on, and click the save button. Now let's see what our flag evaluates to:
+
+[same dynamic element now returning true]
+
+We just turned that flag on without knowing what part of our app it's controlling, let's check to make sure we didn't mess anything up.
+
+[mobile device silhoutte appears, fire appears on screen]
+
+Oh no! It looks like we turned on a broken feature. Quick, turn your flag off!
+
+[screen updates, showing smiley face emoji]
+
+Great, now that we've got the flag turned off, we can investigate the broken code. The code that controls our feature is on line [x].
+
+Can you spot what the issue might be?
+
+[code sample]
+
+That's right, looks like we made a typo in our file path, let's update it now. It should look like this.
+
+[correct code sample]
+
+If your code matches, go ahead and save your file. Remember, saving = deploying for this example. So, do your best impression of pushing a new code commit to a git branch while you save that file.
+
+Now that we've fixed our code and committed the changes, let's turn our feature flag back on in the flag targeting settings.
+
+[screenshot of targeting setting]
+
+Great, not that our flag is back on, let's take another look at our app:
+
+[mobile device silhoutte, smiley face emoji with sunglasses appears]
+
+Our feature is looking pretty good, if you ask me. 
+
+Did you notice how quickly we were able to correct that issue? We didn't have to spend any time rolling back the release, either. We merely disabled the feature, corrected our code , and issued a new commit.
+
+This is what it means to separate the deploy from the release, and it's one of the many capabilities that LaunchDarkly enables— allowing you to ship more code, and gracefully recover from an incident.
+
+That wraps it up for Phase 1: Separate Deploy from Release. In the next Phase, we'll learn about **Targeted Rollouts**. Click the button below to proceed:

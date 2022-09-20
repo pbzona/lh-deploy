@@ -1,0 +1,111 @@
+# Exercise: Evaluation Contexts and Targeting Rules
+
+You might remember that we mentioned something called an **Evaluation Context** back in Phase 1. It's one of the required parameters to our `ldclient.variation()` method. We showed you this code sample, remember?
+
+[same code sample]
+
+Or maybe not. It's okay, we're going to talk about it in detail now anyway.
+
+For this exercise, you will be working out of `module03/index.js` click the button below to open this file now:
+
+[the magical button again that may not be possible]
+
+You may have noticed that the `context` parameter was actually a variable. You may have even noticed that the context variable was pre-defined as an object with a single attribute in the sample code for the module.
+
+Well, the truth is, that `context` object could actually contain any number of attributes. It might look something like this:
+
+[user context example with a few attributes]
+
+The reason you might want want to add a few extra attributes to that object is to— you guessed it, **Target Rollout** of a feature at a specific group of users.
+
+We've created a few contexts for you, each with unique attribute values, on line [x] of `module03/index.js`. Go ahead and have a look at them now:
+
+[code sample]
+
+In this scenario, our **evaluation contexts** represent a user evaluating feature flags— which is why they have attributes such as `email` and `avatar` and `device_type`— but keep in mind that an evaluation context could also represent a machine, such as a specific server or cluster. Here's an example of what that user context might look like:
+
+[code sample of server context]
+
+We've populated these evaluation contexts with static values today, but this would rarely be the case in prouduction environment. Typically, LaunchDarkly users are already storing the values used to populate an **evaluation context** in some sort of state management system. Here's an example of what that might look like.
+
+[one more context example with dynamic attribute calls]
+
+When implementing LaunchDarkly in a production environment, you'll need to consider where and when this information is available in your existing systems to use flag targeting rules effectively.
+
+Okay, that's enough about **evaluation contexts** let's see how we can use them. We've created a special helper function in `module03/index.js` that will evaluate your feature flag for each of the three users on line[x]. All you need to do is add your feature flag on line[x] of the file like so:
+
+[completed code sample with dynamic flag name inputted earlier]
+
+If the above example matches your code in `module03/index.js` go ahead and save the file now.
+
+[conditionally rendered upon save] Great! let's see what variation those users received for your feature flag:
+
+[widget that shows the flag value for all three users]
+
+Looks like they've all received the `true` variation, that's to be expected. Right now, our feature is on for everyone. That's because we've only got a `Default rule` set to serve true to all users when the flag is toggled on.
+
+[screenshot with default rule highlighted]
+
+Let's try something diffrent. First, let's change the default rule to `false`.
+
+[animation of rule toggle]
+
+Next, let's add a rule by clicking add rule under the `Target users who match these rules` header:
+
+[animation of mouse clicking add rules]
+
+You may have noticed that 2/3 of the users in our earlier **evaluation context** example were Android users. Let's create a rule now that turns our feature on for Android users, but leaves it off for the iPhone user:
+
+[rule creation animation]
+
+Our finished rule should look like this:
+
+[screenshot of rule]
+
+You may have noticed that the fields were autopopulated with potential values when you creted your rule. This is something we've done to make your life easier— but what if your attribute values are sensitive information? Don't worry, you can keep the values of your attributes **private** if you'd like. Check out the optional content below to learn more:
+
+[disclosure box with optional content about private attributes]
+
+Now that our rule is configured, let's save our flag:
+
+[animation of clicking save button]
+
+Great! Now let's see which of our sample users receive the feature:
+
+[widget updates to show true for android users and false for iphone]
+
+Fantastic! Only our Android users are receiving the feature. We've successfully performed our first **targeted rollout** with only a few clicks.
+
+In this example, the logic is pretty simple: `if android return true`. We're using a `boolean` flag and the `is one of` operator, but there are a variety of operators available for building targeting rules. 
+
+Let's add a slightly more complex targeting rule and see how it impacts our users. For this one, we'll be using the `app_version` attribute, and target only users with app version `2.0`. Here's how you do it:
+
+[animation of adding rule below first rule]
+
+Here's what your rule should look like:
+
+[semver >= 2.0 rule screenshot]
+
+There may be an unfamiliar term here, `SemVer`. This is the "semantic version" operator, and it's used to evaluate version numbers specifically. It can look at a number with one or more decimal places (like a version number, `3.0.1`) and correctly determine whether it is higher, lower, or equal to a given number with multiple decimal places.
+
+Let's go ahead and save our rule changes.
+
+[animation of clicking save button]
+
+Alright, let's check back and see which of our users are receiving our feature now:
+
+[widget updates to show false for one android and iphone user, other android user is true]
+
+Is this what you expected? If not, you may be slightly confused about how LaunchDarkly evaluates targeting rules. Remember, we already targeted this feature to be exposed to only Android users— but one of our users is on the incorrect version of the app. This is because rules are evaluated in order of their appearance on the flag targeting page:
+
+[screenshot of flag targeting page with rules check order annotated]
+
+Your targeting rules are evaluated top to bottom, and chained together with an `AND` operator. So, if any of the conditions are false the user will receive the default variation. First, we check to ensuer the user is on Android, if that's `true`, then we check to make sure the version number conditions are `true` as well.
+
+Hopefully, it's starting to become apparent how **attributes** and **targeting rules** can be used to exert granular control over your features without a new code deploy. This is what it means to develop **Targeted Rollouts** as a capability. Assuming you are capturing attributes about the humans and machines encountering your feature flags, it's simple to create complex sets of rules to tightly control a release.
+
+That's not all. For this example we've been using a `boolean` flag, which only has two possible values. Keep in mind that LaunchDarkly also has `number`, `string`, and `JSON` flag return types— which can have any number of possible variations. So, it's not only possible to turn functionality on and off using LaunchDarkly, it's possible to dynamically configure any aspect of your applications and user systems.
+
+That wraps it up for Phase 2 of training, **Targeting Rollouts**. We hope this has helped spark many ideas for how you can better use Feature Flags to control the blast radius of a feature release. Click the button below to proceed to phase 3.
+
+[Proceed to Phase 3 Button]
