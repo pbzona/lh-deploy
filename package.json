@@ -1,5 +1,5 @@
 {
-  "name": "nextra",
+  "name": "lighthouse",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,8 @@
   "author": "Shu Ding",
   "license": "MIT",
   "dependencies": {
+    "@heroicons/react": "^2.0.11",
+    "local-storage": "^2.0.0",
     "next": "^12.1.0",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^9.0.0",
