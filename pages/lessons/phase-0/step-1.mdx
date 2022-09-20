@@ -17,11 +17,17 @@ We can accomplish this by adding the name of our SDK module, `launchdarkly-node-
 {
 `  // SDK Setup
   // STEP 1: Import the correct module
-  const ld = require('launchdarkly-node-server-sdk');`
+  const ld = require();`
 }
 </SyntaxHighlighter>
 
 Make sure your module name has single quotes surrounding it, like so:
 
 
-![require ld library completed code](/images/require-ld-library-c.png)
+<SyntaxHighlighter showLineNumbers="true" startingLineNumber={10} language="javascript" style={docco}>
+{
+`  // SDK Setup
+  // STEP 1: Import the correct module
+  const ld = require('launchdarkly-node-server-sdk');`
+}
+</SyntaxHighlighter>

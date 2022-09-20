@@ -1,3 +1,8 @@
+1. Run `yarn`
+2. Run `yarn next`
+
+
+
 # [Nextra](https://nextra.vercel.app)
 
 _Warning: this project is not production ready, API might change without notice._
