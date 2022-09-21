@@ -1,3 +1,6 @@
+import LearningModule from '../../../components/LearningModule';
+import SDKSetupModule from '../../../components/SDKSetupModule';
+
 # Step 4: Verify it's working
 
 When the **LaunchDarkly Client** is properly defined, it will emit a `ready` event to let you know it's ready to use. This is one a few different events at your disposal.
@@ -12,6 +15,4 @@ Let's add a console log inside of this listener that let's us know our Client in
 
 That's it! Go ahead and save your changes to `module01/index.js` and we'll make sure your client initialized properly!
 
-[dynamically check for client definition, once defined give feedback "Good Job! Your client is defined! ✅"].
-
-[button to move to next module, conditionally checks client definition]
+<SDKSetupModule moduleId="1" />
