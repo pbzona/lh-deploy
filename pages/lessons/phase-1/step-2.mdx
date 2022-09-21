@@ -1,3 +1,8 @@
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { insertSingleValue } from '../../../lib/codeHelpers';
+import { getFirstFlagFromLocalStorage } from '../../../lib/flagHelpers';
+
 # Step 2: Add feature flag to code
 
 For this and the following steps, we'll be making changes to `module02/index.js`. Click the button below to open the correct file:
@@ -22,7 +27,11 @@ For more information on **fallback values** check out the optional content below
 
 For the sake of this example, we've taken care of teh **evaluation context** and **fallback parameter*** values for you— all you need to do is add your feature flag key. The correct code should look like this:
 
-[code sample that uses dynamic flag key]
+<SyntaxHighlighter showLineNumbers="true" startingLineNumber={10} language="javascript" style={docco}>
+{
+insertSingleValue`const flagValue = await ldclient.variation('${getFirstFlagFromLocalStorage()}', userCtx, false);`
+}
+</SyntaxHighlighter>
 
 If your code matches, go ahead and save your file. We'll show you what your flag evaluates to once you do:
 
