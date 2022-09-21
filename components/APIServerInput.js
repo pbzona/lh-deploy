@@ -12,6 +12,7 @@ import styles from './css/APIServerInput.module.css';
 // on a site like Replit instead of requiring attendees to run the app locally.
 // In this case, attendees could set the server address to the URL on which
 // their Replit app is listening.
+// Todo: refactor this and FlagKeyInput to use a shared component for the display
 
 export default function APIServerInput() {
   let [ url, setUrl ] = useState('');
