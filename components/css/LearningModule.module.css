@@ -1,0 +1,10 @@
+.learningModule {
+  width: 100%;
+  background-color: #eee;
+  color: #222;
+  display: block;
+  position: relative;
+  margin: 1.4rem 0;
+  padding: 1rem 3rem;
+  border-radius: 1.2rem;
+}
