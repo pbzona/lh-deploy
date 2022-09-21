@@ -1,3 +1,6 @@
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+
 # Step 2: Add Your SDK Key
 
 Our LaunchDarkly Client will need to know which feature flags to cache, and the **Targeting Rules** associated with them, before we can start diving into examples— so we'll need to wire our app up to our **Environment**. You can find additional explanation about LaunchDarkly **Environments** and **Projects** in the optional content below.
@@ -8,11 +11,11 @@ Let's find the SDK key for our LaunchDarkly **Environment** now. If you wanted t
 
 First, make sure you're in the correct project/environment
 
-[screenshot of UI with project and environment highlighted and annotated]
+![Project and Environment](/images/proj-and-env.png)
 
 If not, switch to the correct project
 
-[animated screencap of selecting a project and environment]
+![Selecting a Projecty and Environment](/images/selecting-project.gif)
 
 Next, we'll use the **Global Search** keyboard shorcut: 
 
@@ -21,11 +24,11 @@ ctrl + k (pc)
 
 You'll see the following pop up in your LaunchDarkly Project:
 
-[screenshot of global search box]
+![Global search box](/images/global-search-box.png)
 
 You may already see the option to `Copy SDK key for the current environment`. If not, you should only need to type the word `copy`, click the correct option, and select `Server-side key`.
 
-[animated screencap of copying Server-side SDK key]
+![animated screencap of copying Server-side SDK key](/images/copy-sdk-key.gif)
 
 This copies the SDK key for our environment. Go ahead and paste it below for safekeeping:
 
@@ -33,8 +36,19 @@ This copies the SDK key for our environment. Go ahead and paste it below for saf
 
 Now, let's store it inside of the `SDK_KEY` variable we've predefined on line 15 of `module01/index.js`.
 
-[screenshot or formatted code sample of line 15]
+<SyntaxHighlighter showLineNumbers="true" startingLineNumber={14} language="javascript" style={docco}>
+{
+`  // STEP 2: Define your SDK key
+  const SDK_KEY = ''`
+}
+</SyntaxHighlighter>
+
 
 Once again, make sure you use quotation marks! Line 15 should look like this:
 
-[screenshot or formatted code sample of correct line]
+<SyntaxHighlighter showLineNumbers="true" startingLineNumber={14} language="javascript" style={docco}>
+{
+`  // STEP 2: Define your SDK key
+  const SDK_KEY = 'sdk-34a67d7e-6ee3-495d-b660-967d4c27b7ff'`
+}
+</SyntaxHighlighter>

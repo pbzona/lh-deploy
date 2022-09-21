@@ -44,23 +44,23 @@ If the above example matches your code in `module03/index.js` go ahead and save 
 
 Looks like they've all received the `true` variation, that's to be expected. Right now, our feature is on for everyone. That's because we've only got a `Default rule` set to serve true to all users when the flag is toggled on.
 
-[screenshot with default rule highlighted]
+![screenshot with default rule highlighted](/images/default-rule-no-targets.png)
 
 Let's try something diffrent. First, let's change the default rule to `false`.
 
-[animation of rule toggle]
+![animation of rule toggle](/images/toggling-default-rule.gif)
 
 Next, let's add a rule by clicking add rule under the `Target users who match these rules` header:
 
-[animation of mouse clicking add rules]
+![target uses who match these rules plus highighted](/images/add-rules-button.png)
 
 You may have noticed that 2/3 of the users in our earlier **evaluation context** example were Android users. Let's create a rule now that turns our feature on for Android users, but leaves it off for the iPhone user:
 
-[rule creation animation]
+![animation of mouse clicking add rules](/images/create-targeting-rule.gif)
 
 Our finished rule should look like this:
 
-[screenshot of rule]
+![screenshot of rule](/images/targeting-rule-android-users.png)
 
 You may have noticed that the fields were autopopulated with potential values when you creted your rule. This is something we've done to make your life easier— but what if your attribute values are sensitive information? Don't worry, you can keep the values of your attributes **private** if you'd like. Check out the optional content below to learn more:
 
@@ -84,7 +84,7 @@ Let's add a slightly more complex targeting rule and see how it impacts our user
 
 Here's what your rule should look like:
 
-[semver >= 2.0 rule screenshot]
+![semver >= 2.0 rule screenshot](/images/semver-2.png)
 
 There may be an unfamiliar term here, `SemVer`. This is the "semantic version" operator, and it's used to evaluate version numbers specifically. It can look at a number with one or more decimal places (like a version number, `3.0.1`) and correctly determine whether it is higher, lower, or equal to a given number with multiple decimal places.
 
