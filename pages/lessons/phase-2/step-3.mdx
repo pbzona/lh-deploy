@@ -1,0 +1,31 @@
+# Step 3: Combine Multiple Targeting Rules
+
+In the previous example, the logic was pretty simple: `if android return true`. We're using a `boolean` flag and the `is one of` operator, but there are a variety of operators available for building targeting rules. 
+
+Let's add a slightly more complex targeting rule and see how it impacts our users. For this one, we'll be using the `app_version` attribute, and target only users with app version `2.0`. Here's how you do it:
+
+![Adding second targeting rule](/images/adding-second-rule.gif)
+
+Here's what your rule should look like:
+
+![Mulitple targeting rules screenshot](/images/multiple-targeting-rules.png)
+
+There may be an unfamiliar term here, `SemVer`. This is the "semantic version" operator, and it's used to evaluate version numbers specifically. It can look at a number with one or more decimal places (like a version number, `3.0.1`) and correctly determine whether it is higher, lower, or equal to a given number with multiple decimal places.
+
+Let's go ahead and save our rule changes.
+
+Alright, let's check back and see which of our users are receiving our feature now:
+
+[widget updates to show false for one android and iphone user, other android user is true]
+
+Is this what you expected? If not, you may be slightly confused about how LaunchDarkly evaluates targeting rules. Remember, we already targeted this feature to be exposed to only Android users— but one of our users is on the incorrect version of the app. This is because rules are evaluated in order of their appearance on the flag targeting page:
+
+[screenshot of flag targeting page with rules check order annotated]
+
+Your targeting rules are evaluated top to bottom, and chained together with an `AND` operator. So, if any of the conditions are false the user will receive the default variation. First, we check to ensuer the user is on Android, if that's `true`, then we check to make sure the version number conditions are `true` as well.
+
+Hopefully, it's starting to become apparent how **attributes** and **targeting rules** can be used to exert granular control over your features without a new code deploy. This is what it means to develop **Targeted Rollouts** as a capability. Assuming you are capturing attributes about the humans and machines encountering your feature flags, it's simple to create complex sets of rules to tightly control a release.
+
+And that's not all! For this example we've been using a `boolean` flag, which only has two possible values. Keep in mind that LaunchDarkly also has `number`, `string`, and `JSON` flag return types— which can have any number of possible variations. So, it's not only possible to turn functionality on and off using LaunchDarkly, it's possible to dynamically configure any aspect of your applications and user systems.
+
+That wraps it up for Phase 2 of training, **Targeting Rollouts**. We hope this has helped spark many ideas for how you can better use Feature Flags to control the blast radius of a feature release. Click the button below to proceed to phase 3.

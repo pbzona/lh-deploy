@@ -1,0 +1,43 @@
+# Step 2: Introduction to Flag Targeting Rules
+
+Okay, that's enough about **evaluation contexts** let's see how we can use them. We've created a special helper function in `module03/index.js` that will evaluate your feature flag for each of the three users on line[x]. All you need to do is add your feature flag on line[x] of the file like so:
+
+[completed code sample with dynamic flag name inputted earlier]
+
+If the above example matches your code in `module03/index.js` go ahead and save the file now.
+
+[conditionally rendered upon save] Great! let's see what variation those users received for your feature flag:
+
+[widget that shows the flag value for all three users]
+
+Looks like they've all received the `true` variation, that's to be expected. Right now, our feature is on for everyone. That's because we've only got a `Default rule` set to serve true to all users when the flag is toggled on.
+
+![screenshot with default rule highlighted](/images/default-rule-no-targets.png)
+
+Let's try something diffrent. First, let's change the default rule to `false`.
+
+![animation of rule toggle](/images/toggling-default-rule.gif)
+
+Next, let's add a rule by clicking add rule under the `Target users who match these rules` header:
+
+![target uses who match these rules plus highighted](/images/add-rules-button.png)
+
+You may have noticed that 2/3 of the users in our earlier **evaluation context** example were Android users. Let's create a rule now that turns our feature on for Android users, but leaves it off for the iPhone user:
+
+![animation of mouse clicking add rules](/images/create-targeting-rule.gif)
+
+Our finished rule should look like this:
+
+![screenshot of rule](/images/targeting-rule-android-users.png)
+
+You may have noticed that the fields were autopopulated with potential values when you creted your rule. This is something we've done to make your life easier— but what if your attribute values are sensitive information? Don't worry, you can keep the values of your attributes **private** if you'd like. Check out the optional content below to learn more:
+
+[disclosure box with optional content about private attributes]
+
+Now that our rule is configured, let's save our flag.
+
+Great! Now let's see which of our sample users receive the feature:
+
+[widget updates to show true for android users and false for iphone]
+
+Fantastic! Only our Android users are receiving the feature. We've successfully performed our first **targeted rollout** with only a few clicks.

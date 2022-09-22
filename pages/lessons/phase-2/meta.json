@@ -1,4 +1,6 @@
 {
-    "Introduction" : "Introduction",
-    "exercise" : "Exercise: Evaluation Contexts and Targeting Rules"
+    "Introduction" : "Phase 2: Introduction",
+    "step-1" : "Step 1: Flag Evaluation Contexts",
+    "step-2" : "Step 2: Flag Targeting Rules Intro",
+    "step-3" : "Step 3: Combine Mulitple Targeting Rules"
 }

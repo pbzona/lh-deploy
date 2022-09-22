@@ -1,0 +1,35 @@
+We just turned that flag on without knowing what part of our app it's controlling, let's check to make sure we didn't mess anything up.
+
+[mobile device silhoutte appears, fire appears on screen]
+
+Oh no! It looks like we turned on a broken feature. Quick, turn your flag off!
+
+[screen updates, showing smiley face emoji]
+
+Great, now that we've got the flag turned off, we can investigate the broken code. The code that controls our feature is on line [x].
+
+Can you spot what the issue might be?
+
+[code sample]
+
+That's right, looks like we made a typo in our file path, let's update it now. It should look like this.
+
+[correct code sample]
+
+If your code matches, go ahead and save your file. Remember, saving = deploying for this example. So, do your best impression of pushing a new code commit to a git branch while you save that file.
+
+Now that we've fixed our code and committed the changes, let's turn our feature flag back on in the flag targeting settings.
+
+![Toggle Feature Flag](/images/toggle-flag.gif)
+
+Great, now that our flag is back on, let's take another look at our app:
+
+[mobile device silhoutte, smiley face emoji with sunglasses appears]
+
+Our feature is looking pretty good, if you ask me. 
+
+Did you notice how quickly we were able to correct that issue? We didn't have to spend any time rolling back the release, either. We merely disabled the feature, corrected our code , and issued a new commit.
+
+This is what it means to separate the deploy from the release, and it's one of the many capabilities that LaunchDarkly enables— allowing you to ship more code, and gracefully recover from an incident.
+
+That wraps it up for Phase 1: Separate Deploy from Release. In the next Phase, we'll learn about **Targeted Rollouts**. Click the button below to proceed:
