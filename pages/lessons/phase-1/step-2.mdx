@@ -1,6 +1,7 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import { getFirstFlagFromLocalStorage } from '../../../lib/flagHelpers';
+import FlagKeyAndValue from '../../../components/FlagKeyAndValue';
 
 # Step 2: Add feature flag to code
 
@@ -39,7 +40,7 @@ For the sake of this example, we've taken care of teh **evaluation context** and
 
 If your code matches, go ahead and save your file. We'll show you what your flag evaluates to once you do:
 
-[dynamic element that prints Feature Flag key and value in eye catching way]
+<FlagKeyAndValue moduleId="2" />
 
 [text conditional based on feature flag being added] Great work! Now that our flag is implemented, let's go ahead and turn it on. 
 
@@ -49,4 +50,4 @@ To do that, we'll head back to the targeting settings for our flag, toggle the T
 
  Now let's see what our flag evaluates to:
 
-[same dynamic element now returning true]
+<FlagKeyAndValue moduleId="2" /> // Second instance on the page is not working, need to investigate this
