@@ -13,10 +13,10 @@ For the sake of this example, let's imagine that saving the code in our editor i
 
 On line [x] of `module02/index.js` you'll see a call to the `ldclient.variation()` method.
 
-<SyntaxHighlighter showLineNumbers="true" startingLineNumber={10} language="javascript" style={docco}>
+<SyntaxHighlighter showLineNumbers="true" startingLineNumber={12} language="javascript" style={docco}>
 {
 `  // Paste your call to variation here:
-  const flagValue = await ldclient.variation(flagKey, userCtx, false);`
+  useNewConfig = await ldclient.variation(flagKey, userCtx, fallback);`
 }
 </SyntaxHighlighter>
 
@@ -32,9 +32,9 @@ For more information on **fallback values** check out the optional content below
 
 For the sake of this example, we've taken care of teh **evaluation context** and **fallback parameter*** values for you— all you need to do is add your feature flag key. The correct code should look like this:
 
-<SyntaxHighlighter showLineNumbers="true" startingLineNumber={10} language="javascript" style={docco}>
+<SyntaxHighlighter showLineNumbers="true" startingLineNumber={13} language="javascript" style={docco}>
 {
-`const flagValue = await ldclient.variation('${getFirstFlagFromLocalStorage()}', userCtx, false);`
+`useNewConfig = await ldclient.variation('${getFirstFlagFromLocalStorage()}', userCtx, fallback);`
 }
 </SyntaxHighlighter>
 
