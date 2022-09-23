@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  margin: 0 auto;
+}
+
+.iconDevice {
+  height: 240px;
+  width: 240px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.iconEmoji {
+  font-size: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
