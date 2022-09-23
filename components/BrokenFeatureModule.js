@@ -47,21 +47,20 @@ function EmojiManager({ moduleId }) {
     return () => clearInterval(interval);
   }, [])
 
-  function handleState() {
-    console.log('HANDLING STATE')
-    console.table({flagValue, featureStatus})
-    if (flagValue && featureStatus) {
-      setEmoji("😎");
-      setLabel("smiley face with sunglasses");
-    } else if (flagValue && !featureStatus) {
-      setEmoji("🔥");
-      setLabel("fire");
-    } else if (!flagValue && featureStatus) {
+  function handleState(targetingOn, featureWorking) {
+    if (targetingOn) {
+      if (featureWorking) {
+        setEmoji("😎");
+        setLabel("smiley face with sunglasses");
+      }
+      if (!featureWorking) {
+        setEmoji("🔥");
+        setLabel("fire");
+      }
+    }
+    if (!targetingOn) {
       setEmoji("🙂");
       setLabel("smiley face");
-    } else {
-      setEmoji("❓");
-      setLabel("unknown");
     }
   }
 
@@ -70,7 +69,7 @@ function EmojiManager({ moduleId }) {
     setLocalValue(mod.flagValue);
     setFeatureStatus(mod.configValid);
     setLocalStatus(mod.configValid);
-    handleState();
+    handleState(flagValue, featureStatus);
   }
 
   function errorHandler() {
