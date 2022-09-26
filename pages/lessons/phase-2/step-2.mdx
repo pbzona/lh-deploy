@@ -1,3 +1,5 @@
+import UserTargetingModule from '../../../components/UserTargetingModule';
+
 # Step 2: Introduction to Flag Targeting Rules
 
 Okay, that's enough about **evaluation contexts** let's see how we can use them. We've created a special helper function in `module03/index.js` that will evaluate your feature flag for each of the three users on line[x]. All you need to do is add your feature flag on line[x] of the file like so:
@@ -8,7 +10,7 @@ If the above example matches your code in `module03/index.js` go ahead and save 
 
 [conditionally rendered upon save] Great! let's see what variation those users received for your feature flag:
 
-[widget that shows the flag value for all three users]
+<UserTargetingModule moduleId={3} />
 
 Looks like they've all received the `true` variation, that's to be expected. Right now, our feature is on for everyone. That's because we've only got a `Default rule` set to serve true to all users when the flag is toggled on.
 
@@ -38,6 +40,6 @@ Now that our rule is configured, let's save our flag.
 
 Great! Now let's see which of our sample users receive the feature:
 
-[widget updates to show true for android users and false for iphone]
+<UserTargetingModule moduleId={3} />
 
 Fantastic! Only our Android users are receiving the feature. We've successfully performed our first **targeted rollout** with only a few clicks.

@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  padding: 1.4rem 0;
+}
+
+.loading {
+  font-weight: 500;
+  font-size: 36px;
+  color: #bbb;
+}
+
+.hiddenPanel {
+  display: hidden;
+}
+
+.iconWrapper {
+  height: var(--userIconSize);
+  width: var(--userIconSize);
+  text-align: center;
+}
+
+
+.userTrue {
+  color: var(--green);
+  font-weight: bold;
+}
+
+.userFalse {
+  color: var(--red);
+}
