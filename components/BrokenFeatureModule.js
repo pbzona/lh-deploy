@@ -10,14 +10,14 @@ import { DevicePhoneMobileIcon } from '@heroicons/react/24/outline';
 import { OPTIONS } from '../lib/constants';
 import styles from './css/BrokenFeatureModule.module.css';
 
-function Emoji({ emoji, label }) {
+function Emoji({ symbol, label }) {
   return (
     <span 
       role="img"
       aria-label={label}
       aria-hidden={false}
       className={styles.iconEmoji}>
-      {emoji}
+      {symbol}
     </span>
   )
 }
@@ -77,7 +77,7 @@ function EmojiManager({ moduleId }) {
   }
 
   return (
-    <Emoji emoji={emoji} label={label} />
+    <Emoji symbol={emoji} label={label} />
   )
 }
 
