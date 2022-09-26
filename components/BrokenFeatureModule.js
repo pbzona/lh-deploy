@@ -8,7 +8,6 @@ import {
 } from '../lib/flagHelpers';
 import { DevicePhoneMobileIcon } from '@heroicons/react/24/outline';
 import { nanoid } from 'nanoid';
-import { OPTIONS } from '../lib/constants';
 import styles from './css/BrokenFeatureModule.module.css';
 
 function Emoji({ symbol, label }) {
@@ -29,25 +28,7 @@ function EmojiManager({ moduleId }) {
   let [ label, setLabel ] = useState("unknown"); // Handle aria-label for each emoji
   let [ flagValue, setFlagValue ] = useState(null);
   let [ featureStatus, setFeatureStatus ] = useState(null);
-
   let { mod } = useModule(moduleId, successHandler, errorHandler, randomId);
-
-  // Need to use this hacky localStorage effect because SWR will deduplicate
-  // requests - if multiple components of this type are on same page,
-  // only the first one will actually fetch data from the API. This ensures the rest
-  // will stay up to date as well
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (flagValue !== getLocalValue()) {
-        setFlagValue(getLocalValue());
-      }
-      if (featureStatus !== getLocalStatus()) {
-        setFeatureStatus(getLocalStatus());
-      }
-    }, OPTIONS.refreshInterval);
-
-    return () => clearInterval(interval);
-  }, [])
 
   function handleState(targetingOn, featureWorking) {
     if (targetingOn) {
@@ -74,8 +55,8 @@ function EmojiManager({ moduleId }) {
     handleState(flagValue, featureStatus);
   }
 
-  function errorHandler() {
-    console.error('There was an error in the BrokenFeatureModule component');
+  function errorHandler(err) {
+    console.error(err);
   }
 
   return (

@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useModule } from '../hooks/useModule';
 import { 
   getFirstFlagFromLocalStorage as getKey, 
-  setFirstFlagValueInLocalStorage as setLocalValue,
-  getFirstFlagValueFromLocalStorage as getLocalValue
+  setFirstFlagValueInLocalStorage as setLocalValue
 } from '../lib/flagHelpers';
 import { FlagIcon } from '@heroicons/react/24/solid';
+import { nanoid } from 'nanoid';
 import styles from './css/FlagKeyAndValue.module.css';
-import { OPTIONS } from '../lib/constants';
 
 function KeyValuePair({ keyProp, value }) {
   return (
@@ -22,22 +21,9 @@ function KeyValuePair({ keyProp, value }) {
 }
 
 export default function FlagKeyAndValue({ moduleId }) {
+  let [ randomId, _ ] = useState(nanoid());
   let [ flagValue, setFlagValue ] = useState(null);
-  let { mod } = useModule(moduleId, successHandler, errorHandler);
-
-  // Need to use this hacky localStorage effect because SWR will deduplicate
-  // requests - if multiple components of this type are on same page,
-  // only the first one will actually fetch data from the API. This ensures the rest
-  // will stay up to date as well
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (flagValue !== getLocalValue()) {
-        setFlagValue(getLocalValue());
-      }
-    }, OPTIONS.refreshInterval);
-
-    return () => clearInterval(interval);
-  }, [])
+  let { mod } = useModule(moduleId, successHandler, errorHandler, randomId);
 
   function successHandler() {
     setFlagValue(mod.flagValue);
