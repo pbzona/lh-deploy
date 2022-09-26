@@ -1,5 +1,6 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { getFirstFlagFromLocalStorage } from '../../../lib/flagHelpers';
 
 # Step 1: Evaluation Contexts
 
@@ -7,7 +8,7 @@ You might remember that we mentioned something called an **Evaluation Context** 
 
 <SyntaxHighlighter showLineNumbers="false" language="javascript" style={docco}>
 {
-`const flagValue = await ldclient.variation(flagKey, userCtx, false);`
+`const flagValue = await ldclient.variation('${getFirstFlagFromLocalStorage()}', userCtx, false);`
 }
 </SyntaxHighlighter>
 
@@ -31,9 +32,9 @@ Well, the truth is, that `context` object could actually contain any number of a
             "COMPANY-GROUP-1",
             "COMPANY-GROUP-2"
             ]
-        },
         "state": "CA",
         "early_access": false
+    },
 }`
 }
 </SyntaxHighlighter>
