@@ -7,6 +7,7 @@ import {
   setFeatureStatusInLocalStorage as setLocalStatus
 } from '../lib/flagHelpers';
 import { DevicePhoneMobileIcon } from '@heroicons/react/24/outline';
+import { nanoid } from 'nanoid';
 import { OPTIONS } from '../lib/constants';
 import styles from './css/BrokenFeatureModule.module.css';
 
@@ -23,12 +24,13 @@ function Emoji({ symbol, label }) {
 }
 
 function EmojiManager({ moduleId }) {
+  let [ randomId, _ ] = useState(nanoid());
   let [ emoji, setEmoji ] = useState("❓");
   let [ label, setLabel ] = useState("unknown"); // Handle aria-label for each emoji
   let [ flagValue, setFlagValue ] = useState(null);
   let [ featureStatus, setFeatureStatus ] = useState(null);
 
-  let { mod } = useModule(moduleId, successHandler, errorHandler);
+  let { mod } = useModule(moduleId, successHandler, errorHandler, randomId);
 
   // Need to use this hacky localStorage effect because SWR will deduplicate
   // requests - if multiple components of this type are on same page,
