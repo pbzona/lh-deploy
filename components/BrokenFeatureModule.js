@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useModule } from '../hooks/useModule';
 import { 
-  getFirstFlagValueFromLocalStorage as getLocalValue,
   setFirstFlagValueInLocalStorage as setLocalValue,
-  getFeatureStatusFromLocalStorage as getLocalStatus,
   setFeatureStatusInLocalStorage as setLocalStatus
 } from '../lib/flagHelpers';
 import { DevicePhoneMobileIcon } from '@heroicons/react/24/outline';
