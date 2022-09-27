@@ -11,7 +11,7 @@ export default function DynamicCode() {
     useEffect(() => {
       const interval = setInterval(() => {
         updateCodeSample();
-      }, OPTIONS.refreshInterval);
+      }, 200);
 
       return () => clearInterval(interval);
     }, [])
