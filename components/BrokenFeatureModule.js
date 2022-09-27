@@ -29,19 +29,21 @@ function EmojiManager({ moduleId }) {
   let { mod } = useModule(moduleId, successHandler, errorHandler, randomId);
 
   function handleState(targetingOn, featureWorking) {
-    if (targetingOn) {
-      if (featureWorking) {
-        setEmoji("😎");
-        setLabel("smiley face with sunglasses");
+    if (targetingOn !== null) {
+      if (targetingOn) {
+        if (featureWorking) {
+          setEmoji("😎");
+          setLabel("smiley face with sunglasses");
+        }
+        if (!featureWorking) {
+          setEmoji("🔥");
+          setLabel("fire");
+        }
       }
-      if (!featureWorking) {
-        setEmoji("🔥");
-        setLabel("fire");
+      if (!targetingOn) {
+        setEmoji("🙂");
+        setLabel("smiley face");
       }
-    }
-    if (!targetingOn) {
-      setEmoji("🙂");
-      setLabel("smiley face");
     }
   }
 
