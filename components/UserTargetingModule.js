@@ -44,11 +44,11 @@ export default function UserTargetingModule({ moduleId }) {
       <div className={style.container}>
       { users.length == 0 && <p className={style.loading}>Fetching user data...</p>}
       {users && users.map(user => (
-        <div className={`${style.iconWrapper} ${style.userIcon}`} 
-        key={user.context.key}
-        data-tip={formatContext(user.context)}
-        data-multiline={true}
-        data-event-off={'click'}
+        <div className={style.iconWrapper} 
+          key={user.context.key}
+          data-tip={formatContext(user.context)}
+          data-multiline={true}
+          data-event-off={'click'}
         >
           <UserCircleIcon className={
             user.variation ? style.userTrue : style.userFalse
