@@ -1,4 +1,8 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
+import SdkKeyInput from '../../../components/SdkKeyInput'
+import DynamicCode from '../../../components/DynamicCode'
+import { useState } from 'react';
+import { getSdkKeyFromLocalStorage } from '../../../lib/flagHelpers';
 import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 # Step 2: Add Your SDK Key
@@ -31,7 +35,7 @@ You may already see the option to `Copy SDK key for the current environment`. If
 
 This copies the SDK key for our environment. Go ahead and paste it below for safekeeping:
 
-[box for SDK key that stores it in local storage then uses it to populate code sample]
+<SdkKeyInput />
 
 Now, let's store it inside of the `SDK_KEY` variable we've predefined on line 15 of `module01/index.js`.
 
@@ -45,9 +49,4 @@ Now, let's store it inside of the `SDK_KEY` variable we've predefined on line 15
 
 Once again, make sure you use quotation marks! Line 15 should look like this:
 
-<SyntaxHighlighter showLineNumbers="true" startingLineNumber={14} language="javascript" style={docco}>
-{
-`  // STEP 2: Define your SDK key
-  const SDK_KEY = 'sdk-34a67d7e-6ee3-495d-b660-967d4c27b7ff'`
-}
-</SyntaxHighlighter>
+<DynamicCode />
