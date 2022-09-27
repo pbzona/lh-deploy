@@ -1,7 +1,11 @@
 import Image from "next/image"
+import style from './css/LDLogo.module.css'
 
 export default function LDLogo({ height, width }) {
   return (
-    <Image src='/svg/LaunchDarkly.svg' height={height} width={width} />
+    <div className={style.wrapper}>
+      <Image src='/svg/LaunchDarkly.svg' height={height} width={width} />
+      <span className={style.subText}>Lighthouse</span>
+    </div>
   )
 }
