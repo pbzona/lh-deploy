@@ -51,7 +51,7 @@ export default function UserTargetingModule({ moduleId }) {
         data-event-off={'click'}
         >
           <UserCircleIcon className={
-            `${style.user} ${user.variation ? style.userTrue : style.userFalse}`
+            user.variation ? style.userTrue : style.userFalse
           }/>
           <p className={user.variation ? style.userTrue : style.userFalse}
              style={{ marginTop: 0 }}
