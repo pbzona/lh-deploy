@@ -22,10 +22,10 @@ function Emoji({ symbol, label }) {
 
 function EmojiManager({ moduleId }) {
   let [ randomId, _ ] = useState(nanoid());
-  let [ emoji, setEmoji ] = useState("❓");
-  let [ label, setLabel ] = useState("unknown"); // Handle aria-label for each emoji
+  let [ emoji, setEmoji ] = useState("🔥");
+  let [ label, setLabel ] = useState("fire"); // Handle aria-label for each emoji
   let [ flagValue, setFlagValue ] = useState(null);
-  let [ featureStatus, setFeatureStatus ] = useState(null);
+  let [ featureIsWorking, setFeatureIsWorking ] = useState(null);
   let { mod } = useModule(moduleId, successHandler, errorHandler, randomId);
 
   function handleState(targetingOn, featureWorking) {
@@ -48,9 +48,9 @@ function EmojiManager({ moduleId }) {
   function successHandler() {
     setFlagValue(mod.flagValue);
     setLocalValue(mod.flagValue);
-    setFeatureStatus(mod.configValid);
-    setLocalStatus(mod.configValid);
-    handleState(flagValue, featureStatus);
+    setFeatureIsWorking(mod.featureIsWorking);
+    setLocalStatus(mod.featureIsWorking);
+    handleState(flagValue, featureIsWorking);
   }
 
   function errorHandler(err) {
