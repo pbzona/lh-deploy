@@ -1,0 +1,13 @@
+.wrapper {
+  position: relative;
+}
+
+.subText {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #bbb;
+  position: absolute;
+  left: 60px;
+  bottom: -3px;
+}
