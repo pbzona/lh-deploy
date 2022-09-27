@@ -1,3 +1,5 @@
+import UserTargetingModule from '../../../components/UserTargetingModule';
+
 # Step 3: Combine Multiple Targeting Rules
 
 In the previous example, the logic was pretty simple: `if android return true`. We're using a `boolean` flag and the `is one of` operator, but there are a variety of operators available for building targeting rules. 
@@ -16,7 +18,7 @@ Let's go ahead and save our rule changes.
 
 Alright, let's check back and see which of our users are receiving our feature now:
 
-[widget updates to show false for one android and iphone user, other android user is true]
+<UserTargetingModule moduleId={3} />
 
 Is this what you expected? If not, you may be slightly confused about how LaunchDarkly evaluates targeting rules. Remember, we already targeted this feature to be exposed to only Android users— but one of our users is on the incorrect version of the app. This is because rules are evaluated in order of their appearance on the flag targeting page:
 
