@@ -59,7 +59,6 @@ export default {
   prevLinks: true,
   nextLinks: true,
   footer: false,
-  footerEditLink: 'Edit this page on GitHub',
-  footerText: <>MIT {new Date().getFullYear()} © Nextra.</>,
-  unstable_faviconGlyph: '👋',
+  defaultMenuCollapsed: true,
+  unstable_faviconGlyph: '🚩',
 }
