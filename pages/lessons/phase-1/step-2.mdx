@@ -5,17 +5,15 @@ import FlagKeyAndValue from '../../../components/FlagKeyAndValue';
 
 # Step 2: Add feature flag to code
 
-For this and the following steps, we'll be making changes to `module02/index.js`. Click the button below to open the correct file:
-
-[still not sure if this is possible, but button to open file]
+For this and the following steps, we'll be making changes to `module02/index.js`. 
 
 For the sake of this example, let's imagine that saving the code in our editor is all we need to deploy our code to Production. You and I both know that isn't the case, but functionality we gain once we start feature flagging in our app is identical to what you'll see once we get our feature flag added.
 
-On line [x] of `module02/index.js` you'll see a call to the `ldclient.variation()` method.
+On line 13 of `module02/index.js` you'll see a call to the `ldclient.variation()` method.
 
 <SyntaxHighlighter showLineNumbers="true" startingLineNumber={12} language="javascript" style={docco}>
 {
-`  // Paste your call to variation here:
+`  // Replace the flagKey value with your feature flag key below:
   useNewConfig = await ldclient.variation(flagKey, userCtx, fallback);`
 }
 </SyntaxHighlighter>
@@ -38,11 +36,11 @@ For the sake of this example, we've taken care of teh **evaluation context** and
 }
 </SyntaxHighlighter>
 
-If your code matches, go ahead and save your file. We'll show you what your flag evaluates to once you do:
+If your code matches, go ahead and save your file. The widget below will show you what your flag evaluates to once you do!:
 
 <FlagKeyAndValue moduleId="2" />
 
-[text conditional based on feature flag being added] Great work! Now that our flag is implemented, let's go ahead and turn it on. 
+Great work! Now that our flag is implemented, let's go ahead and turn it on. 
 
 To do that, we'll head back to the targeting settings for our flag, toggle the Targeting switch to on, and click the save button:
 

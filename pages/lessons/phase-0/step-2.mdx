@@ -1,6 +1,7 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import SdkKeyInput from '../../../components/SdkKeyInput'
 import DynamicCode from '../../../components/DynamicCode'
+import OptionalContent from '../../../components/OptionalContent'
 import { useState } from 'react';
 import { getSdkKeyFromLocalStorage } from '../../../lib/flagHelpers';
 import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
@@ -9,9 +10,11 @@ import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 Our LaunchDarkly Client will need to know which feature flags to cache, and the **Targeting Rules** associated with them, before we can start diving into examples— so we'll need to wire our app up to our **Environment**. You can find additional explanation about LaunchDarkly **Environments** and **Projects** in the optional content below.
 
-[Content behind disclosure triangle that explains environments]
+<OptionalContent> <h2> Projects and Environments </h2> </OptionalContent>
 
-Let's find the SDK key for our LaunchDarkly **Environment** now. If you wanted to see the SDK Keys for each **Environment** within the **Projects** you have access to, you can do that from your **[Account Settings](https://app.launchdarkly.com/settings/projects)**— but, instead of looking for our key there let's use a handy shortcut.
+Let's find the SDK key for our LaunchDarkly **Environment** now. 
+
+If you wanted to see the SDK Keys for each **Environment** within the **Projects** you have access to, you can do that from your **[Account Settings](https://app.launchdarkly.com/settings/projects)**— but, instead of looking for our key there let's use a handy shortcut.
 
 First, make sure you're in the correct project/environment
 
@@ -23,7 +26,9 @@ If not, switch to the correct project
 
 Next, we'll use the **Global Search** keyboard shorcut: 
 
-`command + k` (mac) / `ctrl + k` (pc)
+: `⌘ + k`
+
+⊞: `ctrl + k` 
 
 You'll see the following pop up in your LaunchDarkly Project:
 

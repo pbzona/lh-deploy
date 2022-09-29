@@ -14,9 +14,7 @@ You might remember that we mentioned something called an **Evaluation Context** 
 
 Or maybe not. It's okay, we're going to talk about it in detail now anyway.
 
-For this exercise, you will be working out of `module03/index.js` click the button below to open this file now:
-
-[the magical button again that may not be possible]
+For this exercise, you will be working out of `module03/index.js` .
 
 You may have noticed that the `context` parameter was actually a variable. You may have even noticed that the context variable was pre-defined as an object with a single attribute in the sample code for the module.
 
@@ -43,9 +41,20 @@ The reason you might want want to add a few extra attributes to that object is t
 
 We've created a few contexts for you, each with unique attribute values, in `module03/index.js`. Go ahead and have a look at them now.
 
-In this scenario, our **evaluation contexts** represent a user evaluating feature flags— which is why they have attributes such as `email` and `avatar` and `device_type`— but keep in mind that an evaluation context could also represent a machine, such as a specific server or cluster. Here's an example of what that user context might look like:
+In this scenario, our **evaluation contexts** represent a user evaluating feature flags— which is why they have attributes such as `email` and `name` and `device`— but keep in mind that an evaluation context could also represent a machine, such as a specific server or cluster. Here's an example of what that user context might look like:
 
-[code sample of server context]
+<SyntaxHighlighter showLineNumbers="true" startingLineNumber={1} language="javascript" style={docco}>
+{
+`{
+    "key": "ip-10-24-34-0.us-west-2.compute.internal",
+    "custom": {
+        "serviceType": "database",
+        "operatingSystem": "Linux",
+        "ip-adress": "10.24.34.0"
+    }
+}`
+}
+</SyntaxHighlighter>
 
 We've populated these evaluation contexts with static values today, but this would rarely be the case in prouduction environment. Typically, LaunchDarkly users are already storing the values used to populate an **evaluation context** in some sort of state management system. Here's an example of what that might look like.
 

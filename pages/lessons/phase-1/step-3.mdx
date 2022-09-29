@@ -1,4 +1,6 @@
 import BrokenFeatureModule from '../../../components/BrokenFeatureModule';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 We just turned that flag on without knowing what part of our app it's controlling, let's check to make sure we didn't mess anything up.
 
@@ -6,17 +8,37 @@ We just turned that flag on without knowing what part of our app it's controllin
 
 Oh no! It looks like we turned on a broken feature. Quick, turn your flag off!
 
-[screen updates, showing smiley face emoji]
+<BrokenFeatureModule moduleId="2" />
 
-Great, now that we've got the flag turned off, we can investigate the broken code. The code that controls our feature is on line [x].
+Great, now that we've got the flag turned off, we can investigate the broken code. The code that controls our feature starts on line 21.
 
 Can you spot what the issue might be?
 
-[code sample]
+<SyntaxHighlighter showLineNumbers="true" startingLineNumber={21} language="javascript" style={docco}>
+{
+`if (useNewConfig) {
+  config = new AppConfiguration(options);
+    } else {
+      config = new LegacyAppConfiguration(options);
+    }
+  config.loadFromFile('/varr/opt/myApp/config.json');
+}`
+}
+</SyntaxHighlighter>
 
-That's right, looks like we made a typo in our file path, let's update it now. It should look like this.
+That's right, looks like we made a typo in our file path on line 26, let's update it now. It should look like this.
 
-[correct code sample]
+<SyntaxHighlighter showLineNumbers="true" startingLineNumber={21} language="javascript" style={docco}>
+{
+`if (useNewConfig) {
+  config = new AppConfiguration(options);
+    } else {
+      config = new LegacyAppConfiguration(options);
+    }
+  config.loadFromFile('/var/opt/myApp/config.json');
+}`
+}
+</SyntaxHighlighter>
 
 If your code matches, go ahead and save your file. Remember, saving = deploying for this example. So, do your best impression of pushing a new code commit to a git branch while you save that file.
 

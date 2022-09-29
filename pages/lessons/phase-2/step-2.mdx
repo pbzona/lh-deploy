@@ -1,14 +1,39 @@
 import UserTargetingModule from '../../../components/UserTargetingModule';
+import OptionalContent from '../../../components/OptionalContent';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 # Step 2: Introduction to Flag Targeting Rules
 
-Okay, that's enough about **evaluation contexts** let's see how we can use them. We've created a special helper function in `module03/index.js` that will evaluate your feature flag for each of the three users on line[x]. All you need to do is add your feature flag on line[x] of the file like so:
+Okay, that's enough about **evaluation contexts** let's see how we can use them. We've created a special helper function in `module03/index.js` that will evaluate your feature flag for each of the three users on line 51.
 
-[completed code sample with dynamic flag name inputted earlier]
+<SyntaxHighlighter showLineNumbers="false" startingLineNumber={49} language="javascript" style={docco}>
+{
+`// Step 2:
+// Add your feature flag to the variation call in the helper
+async function targetingHelper(ctx) {
+  const flagValue = false;
+  return flagValue;
+}`
+}
+</SyntaxHighlighter>
+
+All you need to do is replace the `false` value inside of the `flagValue` variable on line 52 with an `ldclient.variation()` call:
+
+<SyntaxHighlighter showLineNumbers="false" startingLineNumber={49} language="javascript" style={docco}>
+{
+`// Step 2:
+// Add your feature flag to the variation call in the helper
+async function targetingHelper(ctx) {
+  const flagValue = await ldclient.variation('release-axolotl-feature', ctx, calse);
+  return flagValue;
+}`
+}
+</SyntaxHighlighter>
 
 If the above example matches your code in `module03/index.js` go ahead and save the file now.
 
-[conditionally rendered upon save] Great! let's see what variation those users received for your feature flag:
+Great! let's see what variation those users received for your feature flag:
 
 <UserTargetingModule moduleId={3} />
 
@@ -34,8 +59,7 @@ Our finished rule should look like this:
 
 You may have noticed that the fields were autopopulated with potential values when you creted your rule. This is something we've done to make your life easier— but what if your attribute values are sensitive information? Don't worry, you can keep the values of your attributes **private** if you'd like. Check out the optional content below to learn more:
 
-[disclosure box with optional content about private attributes]
-
+<OptionalContent><h2>Private attributes</h2></OptionalContent>
 Now that our rule is configured, let's save our flag.
 
 Great! Now let's see which of our sample users receive the feature:

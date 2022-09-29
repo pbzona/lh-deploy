@@ -20,11 +20,11 @@ Alright, let's check back and see which of our users are receiving our feature n
 
 <UserTargetingModule moduleId={3} />
 
-Is this what you expected? If not, you may be slightly confused about how LaunchDarkly evaluates targeting rules. Remember, we already targeted this feature to be exposed to only Android users— but one of our users is on the incorrect version of the app. This is because rules are evaluated in order of their appearance on the flag targeting page:
+Is this what you expected? If not, you may be slightly confused about how LaunchDarkly evaluates targeting conditions. Remember, we already targeted this feature to be exposed to only Android users— but one of our users is on the incorrect version of the app. This is because conditions are evaluated in order of their appearance on the flag targeting page:
 
-[screenshot of flag targeting page with rules check order annotated]
+![screenshot of flag targeting page with rules check order annotated](/images/eval-order.png)
 
-Your targeting rules are evaluated top to bottom, and chained together with an `AND` operator. So, if any of the conditions are false the user will receive the default variation. First, we check to ensuer the user is on Android, if that's `true`, then we check to make sure the version number conditions are `true` as well.
+Your targeting conditions are evaluated top to bottom, and chained together with an `AND` operator. So, if any of the conditions are false the user will receive the default variation. First, we check to ensure the user is on Android, if that's `true`, then we check to make sure the version number conditions are `true` as well.
 
 Hopefully, it's starting to become apparent how **attributes** and **targeting rules** can be used to exert granular control over your features without a new code deploy. This is what it means to develop **Targeted Rollouts** as a capability. Assuming you are capturing attributes about the humans and machines encountering your feature flags, it's simple to create complex sets of rules to tightly control a release.
 

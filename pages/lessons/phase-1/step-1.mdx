@@ -1,4 +1,6 @@
 import FlagKeyInput from '../../../components/FlagKeyInput'
+import FlagNameGenerator from '../../../components/FlagNameGenerator'
+import OptionalContent from  '../../../components/OptionalContent'
 
 # Step 1: Create Flag
 
@@ -9,12 +11,12 @@ Follow the steps below to create your release flag.
 - Give the feature flag a name, since this is a release flag, let's use the following format for the name: 
 `Release: [unique word] Feature`
 If you can't think of unique word, use your first name. If all else fails, here's one you can use:
-[Generate a flag name for them]
+<FlagNameGenerator />
 - Notice the auto generated `Key` for the flag. This is how you're going to reference your feature flag in code once it's implemented. Keep in mind the flag key cannot be changed later.
 - That's all we'll need for this step, we can leave the rest of our flag settings at default— but take note of the `Client-Side SDK availability` checkboxes, the return types in the `Flag variations` dropdown, and the `Default Variation` settings:
 ![annotated screenshot of features](/images/flag-features.png)
 To learn more about these settings, check out the optional content below.
-[optional content behind disclosure triangle for additional flag settigns]
+<OptionalContent><h2>Flag Settings</h2></OptionalContent>
 - Hit the **Save flag** button at the bottom of the screen. Once your flag is saved, you'll be brought to the targeting settings for your flag. Which looks like this:
 ![Screenshot of flag settings](/images/feature-targeting-settings.png)
 - Click on the feature flag key located directly beneath the Flag name to copy it to your clip board:
