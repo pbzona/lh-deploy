@@ -1,0 +1,91 @@
+import BrokenFeatureModule from '../../components/BrokenFeatureModule';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+
+# Step 3: Fix the Issue
+
+You can find the feature code on line 35 of `module04/index.js`:
+
+<SyntaxHighlighter showLineNumbers="true" startingLineNumber={35} language="javascript" style={docco}>
+{
+`if (useNewConfig) {
+  config = new AppConfiguration(options);
+    } else {
+      config = new LegacyAppConfiguration(options);
+    }
+  config.loadFromFile('/var/opt/myApp/config.json');
+  // ---------------------------
+  // Do not edit below this line
+  configValid = config.validate();
+  dependenciesSatisfied = config.checkDependencies();
+}
+return {
+flagValue: useNewConfig,
+featureIsWorking: configValid && dependenciesSatisfied // Check Feature Dependencies
+};`
+}
+</SyntaxHighlighter>
+
+Interesting, nothing seems to stand out in the feature code— but what's this?
+
+<SyntaxHighlighter showLineNumbers="true" startingLineNumber={47} language="javascript" style={docco}>
+{
+`return {
+  flagValue: useNewConfig,
+  featureIsWorking: configValid && dependenciesSatisfied //Check Feature Dependencies
+};`
+}
+</SyntaxHighlighter>
+
+Before the feature can run at all, it looks like we're doing a dependency check.
+
+<SyntaxHighlighter showLineNumbers="true" startingLineNumber={45} language="javascript" style={docco}>
+{
+`  dependenciesSatisfied = config.checkDependencies();`
+}
+</SyntaxHighlighter>
+
+Let's have a look at the `module04/dependencies.js` file.
+
+<SyntaxHighlighter showLineNumbers="true" language="javascript" style={docco}>
+{
+`module.exports = {
+  "critical-dependency": "0.4",
+  "featurizer": "1.8",
+  "dark-launchly": "3.1"
+}`
+}
+</SyntaxHighlighter>
+
+Interesting, `critical-dependency` in production is at version `0.4`— that satisfies the dependency check for this feature, but is it the same version we used when we developed this feature? Let's refer back to `module02/dependencies.js` to see what the version is there:
+
+<SyntaxHighlighter showLineNumbers="true" language="javascript" style={docco}>
+{
+`module.exports = {
+  "critical-dependency": "0.6",
+  "featurizer": "1.8",
+  "dark-launchly": "3.1"
+}`
+}
+</SyntaxHighlighter>
+
+A HA! It's a different dependency version, `0.6`, just as we suspected! We do a quick codescan, and the only feature using this dependency is ours (nice how everything works out perfectly in a made up scenario, huh?). Let's go ahead and update the dependency now in `module04/dependencies.js`, like so:
+
+<SyntaxHighlighter showLineNumbers="true" language="javascript" style={docco}>
+{
+`module.exports = {
+  "critical-dependency": "0.6",
+  "featurizer": "1.8",
+  "dark-launchly": "3.1"
+}`
+}
+</SyntaxHighlighter>
+
+
+If the dependencies file matches the above sample, go ahead and save it.
+
+Great! Now that we've updated the dependency, let's check to see if the feature is working for us!
+
+<BrokenFeatureModule moduleId="4" />
+
+Looking great. 

@@ -1,4 +1,5 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
+import OptionalContent from '../../components/OptionalContent';
 import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 # Step 3: Initialize the LaunchDarkly Client
@@ -16,7 +17,7 @@ Assuming we did everything correctly, the LaunchDarkly Client will initialize as
 
 To learn more about the architecture we use to deliver and evaluate your feature flags, check out the optional content below.
 
-[optional content behind disclosure triangle with streaming/caching architecture]
+<OptionalContent><h2>LaunchDarkly Streaming Architecture</h2></OptionalContent>
 
 If you haven't already, go ahead and pass the `SDK_KEY` variable to the `ld.init` function on line 18 of `module01/index.js`. Here's what it should look like:
 

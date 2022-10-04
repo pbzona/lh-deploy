@@ -25,7 +25,7 @@ All you need to do is replace the `false` value inside of the `flagValue` variab
 `// Step 2:
 // Add your feature flag to the variation call in the helper
 async function targetingHelper(ctx) {
-  const flagValue = await ldclient.variation('release-axolotl-feature', ctx, calse);
+  const flagValue = await ldclient.variation('release-axolotl-feature', ctx, false);
   return flagValue;
 }`
 }

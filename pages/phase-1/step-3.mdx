@@ -1,16 +1,19 @@
 import BrokenFeatureModule from '../../components/BrokenFeatureModule';
+import DynamicText from '../../components/DynamicText'
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 We just turned that flag on without knowing what part of our app it's controlling, let's check to make sure we didn't mess anything up.
 
+<DynamicText>
+  {
+    {
+      "trueOption" : "Oh no! It looks like we turned on a broken feature. Quick, turn your flag off!",
+      "falseOption" : "Great, now that we've got the flag turned off, we can investigate the broken code. The code that controls our feature starts on line 21."
+    }
+  }
+</DynamicText>
 <BrokenFeatureModule moduleId="2" />
-
-Oh no! It looks like we turned on a broken feature. Quick, turn your flag off!
-
-<BrokenFeatureModule moduleId="2" />
-
-Great, now that we've got the flag turned off, we can investigate the broken code. The code that controls our feature starts on line 21.
 
 Can you spot what the issue might be?
 
@@ -56,4 +59,4 @@ Did you notice how quickly we were able to correct that issue? We didn't have to
 
 This is what it means to separate the deploy from the release, and it's one of the many capabilities that LaunchDarkly enables— allowing you to ship more code, and gracefully recover from an incident.
 
-That wraps it up for Phase 1: Separate Deploy from Release. In the next Phase, we'll learn about **Targeted Rollouts**. Click the button below to proceed:
+That wraps it up for Phase 1: Separate Deploy from Release. In the next Phase, we'll learn about **Targeting Rollouts**.

@@ -59,6 +59,6 @@ export default {
   prevLinks: true,
   nextLinks: true,
   footer: false,
-  defaultMenuCollapsed: true,
+  defaultMenuCollapsed: false,
   unstable_faviconGlyph: '🚩',
 }

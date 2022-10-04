@@ -1,0 +1,17 @@
+import BrokenFeatureModule from '../../components/BrokenFeatureModule';
+
+# Step 4: Re-Enable the Feature
+
+Okay, last thing. Let's remove ourselves from the test group and turn the feature back on for Android users on app version 2.0:
+
+![animation of removing individual target, flipping targeting rule back to true](/images/remove-individual-user.gif)
+
+Don't forget to save!
+
+![animation of clicking the save button](/images/final-save.gif)
+
+Great, now let's double check that the app is still working:
+
+<BrokenFeatureModule moduleId="4" />
+
+It's fixed! Amazing. And we were able to do all that purely by comparing a dev file to production and updating a fixing a dependency mismatch. Can you imagine how needing to recreate the issue in a QA environment would have been an extra, unneccessary step in this scenario?

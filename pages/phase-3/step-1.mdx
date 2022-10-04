@@ -1,0 +1,23 @@
+import BrokenFeatureModule from '../../components/BrokenFeatureModule';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+
+# Step 1: Investigate the Issue
+
+Great, now let's regroup. First, we look up the details about one of the users who reported an issue in the users tab, and it looks like this:
+
+![screenshot of fake user](/images/user-details.png)
+
+Yup, that's the group of users wanted to release this feature to— and it worked when we tested in our development environment— so what could the issue be? Let's reproduce this ourselves to see if we can figure out what the problem is. We're going to turn the feature back on, but only for us, so first let's ensure that nobody is receiving the feature in production by adjusting our targeting rules:
+
+![animation changing the variation to false for the flag targeting rules](/images/change-rules-based-target.gif)
+
+Don't forget to turn the flag back on before saving
+
+![animation turning the flag on and clicking save](/images/turn-on-and-save.gif)
+
+Ok, our flag is on but it's currently returning `false` for all rulesets. We grab an Android test device and login with our production credentials:
+
+<BrokenFeatureModule moduleId="4" />
+
+Everything is looking good. You check the app version and it's `2.0`, so this device should be able to recreate the issue.

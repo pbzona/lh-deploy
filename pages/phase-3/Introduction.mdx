@@ -1,8 +1,24 @@
 # Phase 3: Test in Production
 
-You're in the home stretch now! We hope you've learned a ton of heady, valuable, stuff so far about feature flags and the capabilities they enable so your team can ship more code without sacrificing safety in your deployments.
+You're in the home stretch now! We hope you've learned a ton of heady, valuable, stuff so far about feature flags and the capabilities they enable— so your team can ship more code without sacrificing safety in your deployments.
 
 The functionality we've used so far may already have you questioning things. You might already be asking yourself questions like "If we can use LaunchDarkly to easily recover from a failure, and push users down different code paths with a few button clicks, then what's the point of our QA environment at all!" If not, then we gently urge you to consider this question.
 
 We truly believe that the level of control, speed, and resiliency that our platform provides makes it possible to test your new features in production. Which, conveniently, happens to be the next capability we'll be discussing: **Testing in Production**.
+
+## Exercise: Testing in Production
+
+At a minimum, LaunchDarkly gives us a new worst-case-scenario for a deploy failure: a killswitch. With LaunchDarkly in our Production environment, any feature behind a flag can simply be disabled. In this reality, what's the purpose of a QA environment at all? We don't need to maintain infrastructure purely to mimic the conditions of production, simply so we can troubleshoot an issue without impacting real traffic.
+
+In this exercise, we'll run through a common real-life scenario and demonstrate how LaunchDarkly makes it easier to recover from an incident by reducing the number of variables that need to be accounted for in troubleshooting.
+
+Say it's a typical Tuesday in the office. You're running through your normal duties, taking issues out of the queue and tackling them one by one, when all of a sudden you get pinged on an urgent issue escalated by the support team:
+
+![screenshot of dramatic error ticket](/images/urgent-ticket.png)
+
+Oh no! The feature we've been working on is broken in production, and the tickets are piling up in technical support.
+
+First thing, let's turn the flag off so we can give the support team a break.
+
+![animation toggling flag off](/images/disable-flag.gif)
 

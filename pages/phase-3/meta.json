@@ -1,6 +1,7 @@
 {
     "Introduction" : "Phase 3: Introduction",
-    "step-1" : "Step 1: ",
-    "step-2" : "Step 2: ",
-    "step-3" : "Step 3: "
+    "step-1" : "Step 1: Investigate the Issue",
+    "step-2" : "Step 2: Use an Individual User Target",
+    "step-3" : "Step 3: Fix the Issue",
+    "step-4" : "Step 4: Re-Enable the Feature"
 }
