@@ -17,28 +17,28 @@ We just turned that flag on without knowing what part of our app it's controllin
 
 Can you spot what the issue might be?
 
-<SyntaxHighlighter showLineNumbers="true" startingLineNumber={21} language="javascript" style={docco}>
+<SyntaxHighlighter showLineNumbers="true" startingLineNumber={20} language="javascript" style={docco}>
 {
 `if (useNewConfig) {
   config = new AppConfiguration(options);
-    } else {
-      config = new LegacyAppConfiguration(options);
-    }
   config.loadFromFile('/varr/opt/myApp/config.json');
+} else {
+  config = new LegacyAppConfiguration(options);
+  config.loadFromFile('/etc/myApp/config.json');
 }`
 }
 </SyntaxHighlighter>
 
-That's right, looks like we made a typo in our file path on line 26, let's update it now. It should look like this.
+That's right, looks like we made a typo in our file path on line 26 - `varr` should be `var`. Let's update it now:
 
 <SyntaxHighlighter showLineNumbers="true" startingLineNumber={21} language="javascript" style={docco}>
 {
 `if (useNewConfig) {
   config = new AppConfiguration(options);
-    } else {
-      config = new LegacyAppConfiguration(options);
-    }
   config.loadFromFile('/var/opt/myApp/config.json');
+} else {
+  config = new LegacyAppConfiguration(options);
+  config.loadFromFile('/etc/myApp/config.json');
 }`
 }
 </SyntaxHighlighter>

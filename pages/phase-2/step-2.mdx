@@ -2,6 +2,7 @@ import UserTargetingModule from '../../components/UserTargetingModule';
 import OptionalContent from '../../components/OptionalContent';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { getFirstFlagFromLocalStorage } from '../../lib/flagHelpers';
 
 # Step 2: Introduction to Flag Targeting Rules
 
@@ -25,7 +26,7 @@ All you need to do is replace the `false` value inside of the `flagValue` variab
 `// Step 2:
 // Add your feature flag to the variation call in the helper
 async function targetingHelper(ctx) {
-  const flagValue = await ldclient.variation('release-axolotl-feature', ctx, false);
+  const flagValue = await ldclient.variation('${getFirstFlagFromLocalStorage()}', ctx, false);
   return flagValue;
 }`
 }
@@ -37,7 +38,7 @@ Great! let's see what variation those users received for your feature flag:
 
 <UserTargetingModule moduleId={3} />
 
-Looks like they've all received the `true` variation, that's to be expected. Right now, our feature is on for everyone. That's because we've only got a `Default rule` set to serve true to all users when the flag is toggled on.
+Looks like they've all received the `true` variation, that's to be expected. Right now, our feature is enabled for everyone. That's because we've only got a `Default rule` set to serve true to all users when the flag targeting is toggled on.
 
 ![screenshot with default rule highlighted](/images/default-rule-no-targets.png)
 
@@ -57,9 +58,10 @@ Our finished rule should look like this:
 
 ![screenshot of rule](/images/targeting-rule-android-users.png)
 
-You may have noticed that the fields were autopopulated with potential values when you creted your rule. This is something we've done to make your life easier— but what if your attribute values are sensitive information? Don't worry, you can keep the values of your attributes **private** if you'd like. Check out the optional content below to learn more:
+You may have noticed that the fields were autopopulated with potential values when you created your rule. This is something we've done to make your life easier — but what if your attribute values are sensitive information? Don't worry, you can keep the values of your attributes **private** if you'd like. Check out the optional content below to learn more:
 
 <OptionalContent><h2>Private attributes</h2></OptionalContent>
+
 Now that our rule is configured, let's save our flag.
 
 Great! Now let's see which of our sample users receive the feature:

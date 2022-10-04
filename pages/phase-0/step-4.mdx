@@ -13,18 +13,20 @@ We've added useful listener methods to the SDK to allow you to hook into the eve
 {
 `  // STEP 4: Print a test message to indicate the client has initialized successfully
   ldclient.on('ready', () => {
-    \ 
+    \ ...
   });`
 }
 </SyntaxHighlighter>
 
-Let's add a console log inside of this listener that let's us know our Client initialized properly.
+The event listener in this section is where you can perform setup and other operations that depend on the LaunchDarkly SDK client being available. Let's add a console log inside of this listener that let's us know our client initialized properly.
 
 <SyntaxHighlighter showLineNumbers="true" startingLineNumber={20} language="javascript" style={docco}>
 {
 `  // STEP 4: Print a test message to indicate the client has initialized successfully
   ldclient.on('ready', () => {
-    console.log('LD INITIALIZED');
+    console.log('LAUNCHDARKLY CLIENT INITIALIZED');
+    launchDarkly.setInstance(ldclient);
+    moduleLoader.cache.initializeExports();
   });`
 }
 </SyntaxHighlighter>

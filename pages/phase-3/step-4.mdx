@@ -1,4 +1,5 @@
 import BrokenFeatureModule from '../../components/BrokenFeatureModule';
+import UserTargetingModule from '../../components/UserTargetingModule';
 
 # Step 4: Re-Enable the Feature
 
@@ -13,5 +14,9 @@ Don't forget to save!
 Great, now let's double check that the app is still working:
 
 <BrokenFeatureModule moduleId="4" />
+
+Looking good so far. Let's also be sure that our user base is getting the behavior we expect:
+
+<UserTargetingModule moduleId="3" />
 
 It's fixed! Amazing. And we were able to do all that purely by comparing a dev file to production and updating a fixing a dependency mismatch. Can you imagine how needing to recreate the issue in a QA environment would have been an extra, unneccessary step in this scenario?

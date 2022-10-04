@@ -30,7 +30,7 @@ For more information on **fallback values** check out the optional content below
 
 For the sake of this example, we've taken care of teh **evaluation context** and **fallback parameter*** values for you— all you need to do is add your feature flag key. The correct code should look like this:
 
-<SyntaxHighlighter showLineNumbers="true" startingLineNumber={13} language="javascript" style={docco}>
+<SyntaxHighlighter showLineNumbers="true" startingLineNumber={14} language="javascript" style={docco}>
 {
 `useNewConfig = await ldclient.variation('${getFirstFlagFromLocalStorage()}', userCtx, fallback);`
 }

@@ -11,7 +11,7 @@ We're going to use the **Individual User Targeting** troubleshoot the broken fea
 <SyntaxHighlighter showLineNumbers="true" startingLineNumber={12} language="javascript" style={docco}>
 {
 ` const userCtx = {
-    key: 'abc123',
+    key: 'abc123', // Replace this value with a unique key to test
     name: 'Gob Bluth', // Replace this value with your name
     email: 'crissangelfan99@gmail.com', // Replace this value with your email address
     custom: {
@@ -26,14 +26,14 @@ We're going to use the **Individual User Targeting** troubleshoot the broken fea
 }
 </SyntaxHighlighter>
 
-Go ahead and add fill out the `firstName` and `email` attributes with your own info:
+Go ahead and add fill out the `key`, `firstName` and `email` attributes with your own info:
 
 <SyntaxHighlighter showLineNumbers="true" startingLineNumber={12} language="javascript" style={docco}>
 {
 ` const userCtx = {
-    key: 'abc123',
-    name: 'Gob Bluth', // Replace this value with your name
-    email: 'crissangelfan99@gmail.com', // Replace this value with your email address
+    key: 'yourAndroidTestDevice', // Replace this value with a unique key to test
+    name: 'Your name', // Replace this value with your name
+    email: 'you@company.org', // Replace this value with your email address
     custom: {
       state: 'CA',
       early_access: false,

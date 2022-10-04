@@ -2,7 +2,7 @@ import UserTargetingModule from '../../components/UserTargetingModule';
 
 # Step 3: Combine Multiple Targeting Rules
 
-In the previous example, the logic was pretty simple: `if android return true`. We're using a `boolean` flag and the `is one of` operator, but there are a variety of operators available for building targeting rules. 
+In the previous example, the logic was pretty simple: `if android return true`. We're using a `boolean` flag and the `is one of` operator, but there are a variety of operators available for building targeting rules. 
 
 Let's add a slightly more complex targeting rule and see how it impacts our users. For this one, we'll use the `app_version` attribute, and target only users with app version `2.0`. Here's how you do it:
 
@@ -12,7 +12,7 @@ Here's what your rule should look like:
 
 ![Mulitple targeting rules screenshot](/images/multiple-targeting-rules.png)
 
-There may be an unfamiliar term here, `SemVer`. This is the "semantic version" operator, and it's used to evaluate version numbers specifically. It can look at a number with one or more decimal places (like a version number, `3.0.1`) and correctly determine whether it is higher, lower, or equal to a given number with multiple decimal places.
+There may be an unfamiliar term here, `SemVer`. This is the "semantic version" operator, and it's used to evaluate version numbers specifically. It can perform a comparison on a version number that contains information about major, minor, and patch releases. If you're interested in reading more, check out the specification [here](https://semver.org/).
 
 Let's go ahead and save our rule changes.
 
