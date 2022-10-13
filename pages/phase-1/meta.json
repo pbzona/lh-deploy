@@ -1,6 +1,0 @@
-{
-    "Introduction" : "Phase 1: Introduction",
-    "step-1" : "Step 1: Create Flag",
-    "step-2" : "Step 2: Add feature flag to code",
-    "step-3" : "Step 3: Control code release via LaunchDarkly"
-}

@@ -5,11 +5,11 @@ import FlagKeyAndValue from '../../components/FlagKeyAndValue';
 
 # Step 2: Add feature flag to code
 
-For this and the following steps, we'll be making changes to `module02/index.js`. 
+For this and the following steps, we'll be making changes to `module01/index.js`. 
 
 For the sake of this example, let's imagine that saving the code in our editor is all we need to deploy our code to Production. You and I both know that isn't the case, but functionality we gain once we start feature flagging in our app is identical to what you'll see once we get our feature flag added.
 
-On line 13 of `module02/index.js` you'll see a call to the `ldclient.variation()` method.
+On line 13 of `module01/index.js` you'll see a call to the `ldclient.variation()` method.
 
 <SyntaxHighlighter showLineNumbers="true" startingLineNumber={12} language="javascript" style={docco}>
 {
@@ -28,7 +28,7 @@ For more information on **fallback values** check out the optional content below
 
 [optional content disclosure box]
 
-For the sake of this example, we've taken care of teh **evaluation context** and **fallback parameter*** values for you— all you need to do is add your feature flag key. The correct code should look like this:
+For the sake of this example, we've taken care of the **evaluation context** and **fallback parameter*** values for you— all you need to do is add your feature flag key. The correct code should look like this:
 
 <SyntaxHighlighter showLineNumbers="true" startingLineNumber={14} language="javascript" style={docco}>
 {
@@ -38,7 +38,7 @@ For the sake of this example, we've taken care of teh **evaluation context** and
 
 If your code matches, go ahead and save your file. The widget below will show you what your flag evaluates to once you do!:
 
-<FlagKeyAndValue moduleId="2" />
+<FlagKeyAndValue moduleId="1" />
 
 Great work! Now that our flag is implemented, let's go ahead and turn it on. 
 
@@ -46,6 +46,6 @@ To do that, we'll head back to the targeting settings for our flag, toggle the T
 
 ![Toggling Feature Flag Animation](/images/toggle-flag.gif)
 
- Now let's see what our flag evaluates to:
+Now let's see what our flag evaluates to:
 
-<FlagKeyAndValue moduleId="2" />
+<FlagKeyAndValue moduleId="1" />

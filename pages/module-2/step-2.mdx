@@ -6,7 +6,7 @@ import { getFirstFlagFromLocalStorage } from '../../lib/flagHelpers';
 
 # Step 2: Introduction to Flag Targeting Rules
 
-Okay, that's enough about **evaluation contexts** let's see how we can use them. We've created a special helper function in `module03/index.js` that will evaluate your feature flag for each of the three users on line 51.
+Okay, that's enough about **evaluation contexts** let's see how we can use them. We've created a special helper function in `module02/index.js` that will evaluate your feature flag for each of the three users on line 51.
 
 <SyntaxHighlighter showLineNumbers="false" startingLineNumber={49} language="javascript" style={docco}>
 {
@@ -36,7 +36,7 @@ If the above example matches your code in `module03/index.js` go ahead and save 
 
 Great! let's see what variation those users received for your feature flag:
 
-<UserTargetingModule moduleId={3} />
+<UserTargetingModule moduleId="2" />
 
 Looks like they've all received the `true` variation, that's to be expected. Right now, our feature is enabled for everyone. That's because we've only got a `Default rule` set to serve true to all users when the flag targeting is toggled on.
 
@@ -66,6 +66,6 @@ Now that our rule is configured, let's save our flag.
 
 Great! Now let's see which of our sample users receive the feature:
 
-<UserTargetingModule moduleId={3} />
+<UserTargetingModule moduleId="2" />
 
 Fantastic! Only our Android users are receiving the feature. We've successfully performed our first **targeted rollout** with only a few clicks.

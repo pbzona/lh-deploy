@@ -1,7 +1,7 @@
 {
   "index": "Welcome",
-  "phase-0" : "Phase 0: Implement the LaunchDarkly Client",
-  "phase-1" : "Phase 1: Seperate Deploy from Release",
-  "phase-2" : "Phase 2: Targeting Rollouts",
-  "phase-3" : "Phase 3: Test in Production"
+  "module-0" : "Module 0: Implement the LaunchDarkly Client",
+  "module-1" : "Module 1: Seperate Deploy from Release",
+  "module-2" : "Module 2: Targeting Rollouts",
+  "module-3" : "Module 3: Test in Production"
 }

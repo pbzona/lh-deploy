@@ -2,11 +2,9 @@ import BrokenFeatureModule from '../../components/BrokenFeatureModule';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
-
-
 # Step 2: Use an Individual User Target
 
-We're going to use the **Individual User Targeting** troubleshoot the broken feature, but before we can udo that, we need to define our production user on line 12 in `module04/index.js`:
+We're going to use the **Individual User Targeting** troubleshoot the broken feature, but before we can undo that, we need to define our production user on line 12 in `module03/index.js`:
 
 <SyntaxHighlighter showLineNumbers="true" startingLineNumber={12} language="javascript" style={docco}>
 {
@@ -54,6 +52,6 @@ Alright, now that we know our production credentials, let's add ourselves to the
 
 Now let's check our app to see if we're receiving the issue:
 
-<BrokenFeatureModule moduleId="4" />
+<BrokenFeatureModule moduleId="3" />
 
 Yup, there it is. Interesting. Let's have a look at the code to see what the difference is in production. 

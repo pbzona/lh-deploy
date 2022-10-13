@@ -4,7 +4,7 @@ import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 # Step 3: Fix the Issue
 
-You can find the feature code on line 35 of `module04/index.js`:
+You can find the feature code on line 35 of `module03/index.js`:
 
 <SyntaxHighlighter showLineNumbers="true" startingLineNumber={33} language="javascript" style={docco}>
 {
@@ -45,7 +45,7 @@ Before the feature can run at all, it looks like we're doing a dependency check.
 }
 </SyntaxHighlighter>
 
-Let's have a look at the `module04/dependencies.js` file.
+Let's have a look at the `module03/dependencies.js` file.
 
 <SyntaxHighlighter showLineNumbers="true" language="javascript" style={docco}>
 {
@@ -57,7 +57,7 @@ Let's have a look at the `module04/dependencies.js` file.
 }
 </SyntaxHighlighter>
 
-Interesting, we have imported `critical-dependency` in production, which sounds like it will satisfy the dependency check. But is it the same version we used when we developed this feature? Let's refer back to `module02/dependencies.js` to see what the version is there:
+Interesting, we have imported `critical-dependency` in production, which sounds like it will satisfy the dependency check. But is it the same version we used when we developed this feature? Let's refer back to `module03/dependencies.js` to see what the version is there:
 
 <SyntaxHighlighter showLineNumbers="true" language="javascript" style={docco}>
 {
@@ -69,7 +69,7 @@ Interesting, we have imported `critical-dependency` in production, which sounds 
 }
 </SyntaxHighlighter>
 
-Aha! It's a different dependency version, `0.6`, just as we suspected! We do a quick codescan, and the only feature using this dependency is ours (nice how everything works out perfectly in a made-up scenario, huh?). Let's go ahead and update the dependency now in `module04/dependencies.js`, like so:
+Aha! It's a different dependency version, `0.6`, just as we suspected! We do a quick code scan, and the only feature using this dependency is ours (nice how everything works out perfectly in a made-up scenario, huh?). Let's go ahead and update the dependency now in `module03/dependencies.js`, like so:
 
 <SyntaxHighlighter showLineNumbers="true" language="javascript" style={docco}>
 {

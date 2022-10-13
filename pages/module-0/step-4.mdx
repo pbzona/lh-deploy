@@ -7,7 +7,7 @@ import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 When the **LaunchDarkly Client** is properly defined, it will emit a `ready` event to let you know it's ready to use. This is one a few different events at your disposal.
 
-We've added useful listener methods to the SDK to allow you to hook into the events emitted by the client, allowing you to execute code at specific phases of the client lifecyclee. We've implemented an event listener for the `ready` event, which signifies that the client is properly initialized and ready to be used for feature flag evaluations, on line 21 of `module01/index.js`.
+We've added useful listener methods to the SDK to allow you to hook into the events emitted by the client, allowing you to execute code at specific phases of the client lifecycle. We've implemented an event listener for the `ready` event, which signifies that the client is properly initialized and ready to be used for feature flag evaluations, on line 21 of `module00/index.js`.
 
 <SyntaxHighlighter showLineNumbers="true" startingLineNumber={20} language="javascript" style={docco}>
 {
@@ -33,4 +33,4 @@ The event listener in this section is where you can perform setup and other oper
 
 That's it! Go ahead and save your changes to `module01/index.js` and we'll make sure your client initialized properly!
 
-<SDKSetupModule moduleId="1" />
+<SDKSetupModule moduleId="0" />

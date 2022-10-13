@@ -4,11 +4,11 @@ import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 # Step 3: Initialize the LaunchDarkly Client
 
-Finally, we'll initialize the **LaunchDarkly Client** by passing it our `SDK_KEY` variable on line 18 of `module01/index.js`
+Finally, we'll initialize the **LaunchDarkly Client** by passing it our `SDK_KEY` variable on line 18 of `module00/index.js`
 
 <SyntaxHighlighter showLineNumbers="true" startingLineNumber={17} language="javascript" style={docco}>
 {
-`  // STEP 3: Intialize the SDK client
+`  // STEP 3: Initialize the SDK client
   const ldclient = ld.init();`
 }
 </SyntaxHighlighter>
@@ -19,11 +19,11 @@ To learn more about the architecture we use to deliver and evaluate your feature
 
 <OptionalContent><h2>LaunchDarkly Streaming Architecture</h2></OptionalContent>
 
-If you haven't already, go ahead and pass the `SDK_KEY` variable to the `ld.init` function on line 18 of `module01/index.js`. Here's what it should look like:
+If you haven't already, go ahead and pass the `SDK_KEY` variable to the `ld.init` function on line 18 of `module00/index.js`. Here's what it should look like:
 
 <SyntaxHighlighter showLineNumbers="true" startingLineNumber={17} language="javascript" style={docco}>
 {
-`  // STEP 3: Intialize the SDK client
+`  // STEP 3: Initialize the SDK client
   const ldclient = ld.init(SDK_KEY);`
 }
 </SyntaxHighlighter>

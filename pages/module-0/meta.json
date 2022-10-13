@@ -1,0 +1,7 @@
+{
+    "Introduction" : "Introduction",
+    "step-1" : "Import the LaunchDarkly SDK",
+    "step-2" : "Add your SDK key",
+    "step-3" : "Initialize the LaunchDarkly client",
+    "step-4" : "Verify it's working"
+}
