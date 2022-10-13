@@ -3,10 +3,10 @@ import LDLogo from "./components/LDLogo";
 export default {
   github: 'https://github.com/shuding/nextra',
   docsRepositoryBase: 'https://github.com/shuding/nextra/blob/master',
-  titleSuffix: ' – Nextra',
+  titleSuffix: ' - LaunchDarkly',
   darkMode: false,
   logo: (
-    <LDLogo height={40} width={240}/>
+    <LDLogo height={160} width={560} />
   ),
   head: (
     <>
