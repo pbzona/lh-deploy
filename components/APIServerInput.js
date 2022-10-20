@@ -16,7 +16,6 @@ import styles from './css/APIServerInput.module.css';
 
 export default function APIServerInput() {
   let [ url, setUrl ] = useState('');
-  let [ editing, setEditing ] = useState(true);
   
   useEffect(() => {
     const apiServer = getUrlFromLocalStorage();
@@ -29,14 +28,19 @@ export default function APIServerInput() {
     setUrl(event.target.value);
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    // Remove this line if other widgets appear on the same page:
+    //   default behavior forces a page refresh, which allows other widgets
+    //   to correctly obtain the URL they need to poll
+    event.preventDefault();
+    
     setUrlInLocalStorage(url);
     setEditing(false);
   }
 
   return (
       <form onSubmit={handleSubmit} className={`w-full ${styles.form}`}>
-        <fieldset disabled={!editing} className="block w-full">
+        <fieldset className="block w-full">
           <div className="flex">
             <label className="w-full mr-8 text-sm font-medium text-gray-700">
             Server URL:
@@ -45,7 +49,6 @@ export default function APIServerInput() {
             <button className={styles.button}>Set</button>
           </div>
         </fieldset>
-        {!editing && <button onClick={() => setEditing(true)}>Edit</button>}
       </form>
   )
 }
