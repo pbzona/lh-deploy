@@ -35,7 +35,6 @@ export default function APIServerInput() {
     event.preventDefault();
     
     setUrlInLocalStorage(url);
-    setEditing(false);
   }
 
   return (
