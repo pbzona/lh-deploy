@@ -1,5 +1,7 @@
+import axios from 'axios'
 import { useState, useEffect } from 'react';
 import { getFirstFlagFromLocalStorage, setFirstFlagInLocalStorage } from '../lib/flagHelpers';
+import { getUrlFromLocalStorage, remoteFlagKeyEndpoint } from '../lib/urlHelpers';
 
 // Need to import custom styles because we can't reconfigure the Tailwind installation in the theme
 // to add the @tailwind/forms plugin
@@ -22,9 +24,13 @@ export default function FlagKeyInput() {
     setFlagKey(event.target.value);
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setFirstFlagInLocalStorage(flagKey);
+
+    const url = getUrlFromLocalStorage();
+    const res = await axios.post(remoteFlagKeyEndpoint(url), { flagKey });
+    console.log(res);
   }
 
   return (
