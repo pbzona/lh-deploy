@@ -16,7 +16,8 @@ import styles from './css/APIServerInput.module.css';
 
 export default function APIServerInput() {
   let [ url, setUrl ] = useState('');
-  
+  let [ isButtonActive, updateButtonState ] = useState(false);
+
   useEffect(() => {
     const apiServer = getUrlFromLocalStorage();
     if (apiServer) {
@@ -25,8 +26,12 @@ export default function APIServerInput() {
   }, []);
 
   const handleInputChange = (event) => {
-    setUrl(event.target.value);
-  }
+    if (event.target.value.length !== 0) {
+      updateButtonState(true);
+    } else {
+      updateButtonState(false);
+    }
+  };
 
   const handleSubmit = (event) => {
     // Remove this line if other widgets appear on the same page:
@@ -34,20 +39,30 @@ export default function APIServerInput() {
     //   to correctly obtain the URL they need to poll
     event.preventDefault();
     
-    setUrlInLocalStorage(url);
+    let updatedUrl = event.target.elements['serverUrl'].value;
+    setUrlInLocalStorage(updatedUrl);
+    setUrl(updatedUrl);
+    
+    // Reset the form input field on submit
+    event.target.elements['serverUrl'].form.reset();
+
+    updateButtonState(false);
   }
 
   return (
+    <div>
       <form onSubmit={handleSubmit} className={`w-full ${styles.form}`}>
         <fieldset className="block w-full">
           <div className="flex">
             <label className="w-full mr-8 text-sm font-medium text-gray-700">
             Server URL:
-              <input type="text" className={`w-full rounded-md border-1 line border-gray-500 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${styles.input}`} value={url} onChange={handleInputChange}></input>
+            <input name="serverUrl" type="text" className={`w-full rounded-md border-1 line border-gray-500 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${styles.input}`} placeholder="Enter server URL" onChange={handleInputChange} onSubmit={handleSubmit}></input>
             </label>
-            <button className={styles.button}>Set</button>
+            <button className={isButtonActive ? styles.buttonActive : styles.buttonInactive} type="submit">Set</button>
           </div>
         </fieldset>
       </form>
+      <p><b>Saved server URL:</b> {url ? url : "N/A"}</p>
+    </div>
   )
 }
