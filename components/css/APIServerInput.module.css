@@ -10,7 +10,17 @@
   border-radius: 12px;
 }
 
-.button {
+.buttonInactive {
+  background-color: gainsboro;
+  margin-left: .4em;
+  margin-top: 1.2em;
+  border-radius: 12px;
+  padding: 0 1.2em;
+  color: white;
+  cursor: default;
+}
+
+.buttonActive {
   background-color: dodgerblue;
   margin-left: .4em;
   margin-top: 1.2em;
